@@ -1,6 +1,7 @@
 import React from 'react';
 
 const MenuItem = ({ item }) => {
+	console.log(JSON.stringify(item));
 	return (
 		<li className='list-group-item'>
 			<div className='row'>

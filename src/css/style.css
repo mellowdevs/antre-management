@@ -80,13 +80,6 @@ button:focus {
   .order-item {
     font-size: 0.7em; } }
 @media screen and (max-width: 500px) {
-  .menu-card {
-    max-width: 300px;
-    font-size: 0.6em !important; }
-
-  .menu-card-body {
-    max-width: 250px; }
-
   .nav-item {
     font-size: 0.9em; }
 
@@ -581,32 +574,20 @@ h2.active {
 .product-second-row {
   margin-top: 9px; }
 
-.menu-flex {
-  margin: 10px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start; }
+.menu {
+  position: relative; }
 
 .menu-card {
-  max-width: fit-content;
+  max-width: 90%;
   display: block;
-  margin-top: 30px;
-  max-height: 500px; }
+  margin-top: 30px; }
 
-.menu-scrollable {
-  max-height: 200px;
-  overflow-y: auto; }
-  .menu-scrollable::-webkit-scrollbar {
-    width: 1em; }
-  .menu-scrollable::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); }
-  .menu-scrollable::-webkit-scrollbar-thumb {
-    background-color: #edf6f9;
-    outline: 1px solid #c7e3ec; }
+.nav-link {
+  color: #297045;
+  text-decoration: none; }
 
-.menu-card-body {
-  width: 400px; }
+.nav-link.active {
+  background-color: #ffd006 !important; }
 
 .edit-icon {
   font-size: 15px; }

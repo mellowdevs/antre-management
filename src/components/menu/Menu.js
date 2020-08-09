@@ -8,7 +8,6 @@ import { compose } from 'redux';
 class Menu extends Component {
 	render() {
 		const { categories } = this.props;
-		console.log(this.props);
 		return (
 			<div className='container-fluid menu-container'>
 				<div className='container-fluid title-container text-center'>

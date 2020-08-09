@@ -1,23 +1,19 @@
-.menu-flex {
-	margin: 10px 20px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: flex-start;
+.menu {
+	position: relative;
 }
 .menu-card {
-	max-width: fit-content;
+	max-width: 90%;
 	display: block;
 	margin-top: 30px;
-	max-height: 500px;
 }
-.menu-scrollable {
-	max-height: 200px;
-	@include scrollbar($light-color);
-	overflow-y: auto;
+
+.nav-link {
+	color: $secondary-color;
+	text-decoration: none;
 }
-.menu-card-body {
-	width: 400px;
+
+.nav-link.active {
+	background-color: $primary-color !important;
 }
 .edit-icon {
 	font-size: 15px;

@@ -20,6 +20,8 @@ class MenuCategory extends Component {
 				response.forEach((doc) => {
 					const item = {
 						id: doc.id,
+						catId: category.id,
+						catName: category.name,
 						...doc.data(),
 					};
 					items.push(item);
@@ -37,16 +39,14 @@ class MenuCategory extends Component {
 			<div class='card menu-card'>
 				<div class='card-body menu-card-body'>
 					<h5 class='card-title menu-category-title'>{category.name}</h5>
-					<div class='scrollable menu-scrollable'>
-						<p class='card-text'>
-							<ul className='list-group'>
-								{items &&
-									items.map((item) => {
-										return <MenuItem item={item} key={item.id} />;
-									})}
-							</ul>
-						</p>
-					</div>
+					<p class='card-text'>
+						<ul className='list-group'>
+							{items &&
+								items.map((item) => {
+									return <MenuItem item={item} key={item.id} />;
+								})}
+						</ul>
+					</p>
 				</div>
 			</div>
 		);
