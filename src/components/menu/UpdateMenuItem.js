@@ -35,27 +35,25 @@ const UpdateMenuItem = (props) => {
 			props.deleteMenuItem(state);
 		};
 		return (
-			<div className='container-fluid add-product-container'>
+			<div className='container-fluid update-menu-container'>
 				<div className='card add-product-card'>
 					<div className='card-title text-center'>
-						<h5 className='component-title'>Menü Güncelle</h5>
+						<h5 className='component-title menu-update-title'>Menü Güncelle</h5>
 					</div>
 					<div className='card-body'>
 						<div className='row'>
-							<div className='col-9'>
-								<p className='update-product-name'>
-									<input
-										type='text'
-										id='name'
-										className='product-price'
-										placeholder='Ürün Adı'
-										onChange={handleChange}
-										defaultValue={item.name}
-										min='1'
-									/>
-								</p>
+							<div className='col-8 menu-input'>
+								<input
+									type='text'
+									id='name'
+									className='product-name'
+									placeholder='Ürün Adı'
+									onChange={handleChange}
+									defaultValue={item.name}
+									min='1'
+								/>
 							</div>
-							<div className='col-3'>
+							<div className='col-3  menu-input'>
 								<input
 									type='number'
 									id='price'
@@ -70,14 +68,20 @@ const UpdateMenuItem = (props) => {
 						<div className='row'>
 							<div className='col-4 offset-4 update-menu-col text-center'>
 								<Link to='/menu' style={{ textDecoration: 'none' }}>
-									<button className='btn btn-danger' onClick={handleDelete}>
+									<button
+										className='btn btn-danger update-menu-btn'
+										onClick={handleDelete}
+									>
 										Kaldır
 									</button>
 								</Link>
 							</div>
 							<div className='col-4 update-menu-col '>
 								<Link to='/menu' style={{ textDecoration: 'none' }}>
-									<button className='btn btn-success' onClick={handleUpdate}>
+									<button
+										className='btn btn-success update-menu-btn'
+										onClick={handleUpdate}
+									>
 										Güncelle
 									</button>
 								</Link>

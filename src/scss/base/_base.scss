@@ -4,7 +4,6 @@
 body {
 	font-family: $primary-font !important;
 	font-weight: 300 !important;
-
 	@include scrollbar($light-color);
 }
 button:focus {
@@ -107,15 +106,51 @@ button:focus {
 	.order-item {
 		font-size: 0.6em;
 	}
+
 	.product-detail-item {
 		font-size: 0.7em;
 	}
 	.edit-product-btn {
 		font-size: 0.6em;
 	}
+	.update-menu-btn {
+		font-size: 0.7em;
+	}
+	.menu-input {
+		max-width: fit-content;
+
+		padding: 1px;
+	}
+
+	.menu-update-title {
+		font-size: 0.9em;
+	}
+	.product-name,
+	.product-price {
+		width: fit-content;
+		font-size: 0.6em !important;
+	}
 }
 @media screen and (max-width: 400px) {
 	.nav-item {
 		font-size: 0.8em;
+	}
+	.update-menu-btn {
+		font-size: 0.6em;
+	}
+}
+@media screen and (max-width: 290px) {
+	.nav-item,
+	.navbar-header {
+		font-size: 0.5em;
+	}
+
+	.btn-create {
+		font-size: 0.5em;
+		width: 15px;
+		height: 15px;
+	}
+	.update-menu-btn {
+		font-size: 0.6em;
 	}
 }

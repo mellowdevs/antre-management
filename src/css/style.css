@@ -103,10 +103,40 @@ button:focus {
     font-size: 0.7em; }
 
   .edit-product-btn {
-    font-size: 0.6em; } }
+    font-size: 0.6em; }
+
+  .update-menu-btn {
+    font-size: 0.7em; }
+
+  .menu-input {
+    max-width: fit-content;
+    padding: 1px; }
+
+  .menu-update-title {
+    font-size: 0.9em; }
+
+  .product-name,
+  .product-price {
+    width: fit-content;
+    font-size: 0.6em !important; } }
 @media screen and (max-width: 400px) {
   .nav-item {
-    font-size: 0.8em; } }
+    font-size: 0.8em; }
+
+  .update-menu-btn {
+    font-size: 0.6em; } }
+@media screen and (max-width: 290px) {
+  .nav-item,
+  .navbar-header {
+    font-size: 0.5em; }
+
+  .btn-create {
+    font-size: 0.5em;
+    width: 15px;
+    height: 15px; }
+
+  .update-menu-btn {
+    font-size: 0.6em; } }
 .order-card {
   width: 400px;
   display: block;
@@ -595,6 +625,58 @@ h2.active {
 .update-menu-col {
   max-width: fit-content;
   margin-right: 0; }
+
+.update-menu-container input[type='text'] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 95%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px; }
+  .update-menu-container input[type='text']:focus {
+    background-color: #fff;
+    width: 100%;
+    border-bottom: 2px solid #ffd006; }
+  .update-menu-container input[type='text']::placeholder {
+    color: #cccccc; }
+
+.update-menu-container input[type='number'] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 100%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px; }
+  .update-menu-container input[type='number']:focus {
+    background-color: #fff;
+    width: 105%;
+    border-bottom: 2px solid #ffd006; }
+  .update-menu-container input[type='number']::placeholder {
+    color: #cccccc; }
 
 .navbar-brand {
   font-family: "Poppins";

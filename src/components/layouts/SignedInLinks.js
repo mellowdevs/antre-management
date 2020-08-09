@@ -8,7 +8,11 @@ const SignedInLinks = (props) => {
 		<ul className='navbar-nav text-center'>
 			<li className='nav-item'>
 				<Link to='/create' className='nav-link' href='#'>
-					<button type='button' className='btn btn-create' id='newOrder'>
+					<button
+						type='button'
+						className='btn btn-create  text-center'
+						id='newOrder'
+					>
 						+
 					</button>
 				</Link>
