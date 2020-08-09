@@ -3,13 +3,7 @@ import MenuCategory from './MenuCategory';
 import { Row, Tab, Col, Nav } from 'react-bootstrap';
 const MenuList = ({ categories }) => {
 	const results = categories;
-	// return (
-	// <MenuCategory
-	//     category={category}
-	//     cid={category.id}
-	//     key={category.id}
-	// />
-	// );
+
 	return (
 		<div className='menu'>
 			<Tab.Container id='left-tabs-example' defaultActiveKey='first'>

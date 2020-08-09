@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MenuItem = ({ item }) => {
-	console.log(JSON.stringify(item));
 	return (
 		<li className='list-group-item'>
 			<div className='row'>
@@ -12,9 +12,16 @@ const MenuItem = ({ item }) => {
 					<p>{item.price}₺</p>
 				</div>
 				<div className='col-1'>
-					<button className='btn btn-sm'>
-						<i class='material-icons edit-icon'>edit</i>
-					</button>
+					<Link
+						to={'/item/' + item.cid + '/' + item.id}
+						cid={item.cid}
+						slm='slm'
+						style={{ textDecoration: 'none' }}
+					>
+						<button className='btn btn-sm'>
+							<i class='material-icons edit-icon'>edit</i>
+						</button>
+					</Link>
 				</div>
 			</div>
 		</li>

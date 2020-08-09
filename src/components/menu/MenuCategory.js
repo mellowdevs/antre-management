@@ -20,8 +20,8 @@ class MenuCategory extends Component {
 				response.forEach((doc) => {
 					const item = {
 						id: doc.id,
-						catId: category.id,
-						catName: category.name,
+						cid: category.id,
+						cname: category.name,
 						...doc.data(),
 					};
 					items.push(item);

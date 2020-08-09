@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import { updateProduct } from '../../store/actions/productActions';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-
 import { Redirect } from 'react-router-dom';
+
 const UpdateProduct = (props) => {
 	const id = props.match.params.id;
 	const { product, auth } = props;

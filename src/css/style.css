@@ -592,6 +592,10 @@ h2.active {
 .edit-icon {
   font-size: 15px; }
 
+.update-menu-col {
+  max-width: fit-content;
+  margin-right: 0; }
+
 .navbar-brand {
   font-family: "Poppins";
   color: #000000 !important;

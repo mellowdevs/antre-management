@@ -9,6 +9,7 @@ import Warehouse from './components/warehouse/Warehouse';
 import AddProduct from './components/warehouse/AddProduct';
 import UpdateProduct from './components/warehouse/UpdateProduct';
 import Menu from './components/menu/Menu';
+import UpdateMenuItem from './components/menu/UpdateMenuItem';
 function App() {
 	return (
 		<BrowserRouter>
@@ -19,6 +20,11 @@ function App() {
 						<Route exact path='/' component={Dashboard}></Route>
 						<Route exact path='/order/:id' component={OrderDetails}></Route>
 						<Route exact path='/update/:id' component={UpdateProduct}></Route>
+						<Route
+							exact
+							path='/item/:cid/:id'
+							component={UpdateMenuItem}
+						></Route>
 						<Route exact path='/create' component={CreateOrder}></Route>
 						<Route exact path='/signin' component={SignIn}></Route>
 						<Route exact path='/warehouse' component={Warehouse}></Route>

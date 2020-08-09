@@ -15,7 +15,22 @@ const initState = {
 	],
 };
 const menuReducer = (state = initState, action) => {
-	return state;
+	switch (action.type) {
+		case 'ADD_MENU_ITEM':
+			console.log('created product', action.item);
+			return state;
+		case 'UPDATE_MENU_ITEM':
+			console.log('updated product', action.item);
+			return state;
+		case 'DELETE_MENU_ITEM':
+			console.log('updated product', action.item);
+			return state;
+		case 'ADD_MENU_ITEM_ERROR':
+			console.log('error creating product', action.err);
+			return state;
+		default:
+			return state;
+	}
 };
 
 export default menuReducer;
