@@ -1,0 +1,17 @@
+$primary-color: #ffd006;
+$secondary-color: #297045;
+$white: #ffffff;
+$black: #000000;
+$error-color: #c82333;
+$light-color: #edf6f9;
+
+$pm-color-light: lighten(
+	$color: $primary-color,
+	$amount: 30,
+);
+$sn-color-light: lighten(
+	$color: $secondary-color,
+	$amount: 30,
+);
+
+$primary-font: 'Poppins';

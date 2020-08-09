@@ -1,0 +1,82 @@
+.product-card {
+	width: 48%;
+	margin-top: 20px;
+}
+.add-product-card {
+	width: 50%;
+	margin: auto;
+	margin-top: 20px;
+}
+.edit-product-btn {
+	@include regularButton($secondary-color, $white);
+	color: $white;
+	text-decoration: none;
+	margin-top: 0;
+}
+.add-product-button {
+	@include regularButton($secondary-color, $white);
+	color: $white;
+	width: 70%;
+	font-weight: 100;
+	&:hover,
+	&:focus {
+		background-color: $primary-color !important;
+	}
+}
+
+.update-product-name {
+	font-size: 1.5em;
+	color: $secondary-color;
+}
+
+.update-label {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 0.9em;
+}
+
+.warehouse-flex {
+	margin: 10px 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.product-detail-item {
+	width: max-content;
+	display: block;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.product-detail-col {
+	display: block;
+	margin: auto;
+}
+
+.product-detail-name {
+	font-weight: 600 !important;
+}
+.product-detail-price {
+	font-weight: 600 !important;
+}
+
+.add-new-product-btn {
+	@include roundButton($primary-color);
+	color: $white !important;
+}
+
+.add-prod-col {
+	display: block;
+	margin: auto;
+}
+
+.add-product-container input[type='text'] {
+	@include regularInput(95%);
+}
+.add-product-container input[type='number'] {
+	@include regularInput(100%);
+}
+.product-second-row {
+	margin-top: 9px;
+}

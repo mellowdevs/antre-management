@@ -1,0 +1,60 @@
+.order-card {
+	width: 400px;
+	display: block;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.table-name {
+	color: $secondary-color;
+	display: block;
+	margin-top: auto;
+}
+.order-details-body.list-group {
+	margin-top: 10px;
+}
+.edit-btn {
+	@include roundButton($primary-color);
+	display: block;
+	margin: auto;
+}
+.pay-btn {
+	background-color: $secondary-color !important;
+	border: none;
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+	color: $black;
+	&:hover {
+		background-color: $secondary-color !important;
+		border: none !important;
+		color: $black !important;
+	}
+	&:focus {
+		outline: none !important;
+		box-shadow: none !important;
+		background-color: $sn-color-light !important;
+		border: none !important;
+		color: $black !important;
+	}
+}
+.manage-btn,
+.add-drop-btn,
+.save-order-btn {
+	@include regularButton($primary-color, $black);
+}
+.product-number {
+	width: 100%;
+}
+.product-entry {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.btn-add-a-row {
+	@include roundButton($primary-color);
+}
+.order-create-card {
+	max-width: 500px;
+	margin: auto;
+	margin-top: 30px;
+}

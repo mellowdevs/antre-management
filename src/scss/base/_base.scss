@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+body {
+	font-family: $primary-font !important;
+	font-weight: 300 !important;
+
+	@include scrollbar($light-color);
+}
+button:focus {
+	box-shadow: none;
+}
+
+.loading {
+	width: 3rem;
+	height: 3rem;
+	display: block;
+	margin: auto;
+	margin-top: 100px;
+	color: $primary-color;
+}
+.component-title {
+	font-family: 'Quicksand' !important;
+	font-size: 2em;
+	font-weight: 600 !important;
+	color: $primary-color;
+	margin-top: 20px;
+}
+
+@media screen and (min-width: 993px) {
+	.product-detail-item,
+	.edit-product-btn {
+		font-size: 0.98em;
+	}
+}
+@media screen and (max-width: 992px) {
+	.product-card {
+		min-width: 70%;
+	}
+	.add-product-card {
+		min-width: 70%;
+	}
+	.product-detail-item,
+	.edit-product-btn {
+		font-size: 0.9em;
+	}
+	.table-name {
+		font-size: 0.9em;
+	}
+	.manage-btn,
+	.order-price {
+		font-size: 0.9em;
+	}
+
+	.order-card {
+		max-width: 100%;
+	}
+	.order-item {
+		font-size: 0.8em;
+	}
+}
+@media screen and (max-width: 720px) {
+	.product-card {
+		min-width: 90%;
+	}
+	.add-product-card {
+		min-width: 100%;
+	}
+	.product-detail-item,
+	.edit-product-btn {
+		font-size: 0.8em;
+	}
+	.table-name {
+		font-size: 0.8em;
+	}
+	.manage-btn,
+	.order-price {
+		font-size: 0.8em;
+	}
+
+	.order-card {
+		max-width: 100%;
+	}
+	.order-item {
+		font-size: 0.7em;
+	}
+}
+@media screen and (max-width: 500px) {
+	.menu-card {
+		max-width: 300px;
+		font-size: 0.6em !important;
+	}
+	.menu-card-body {
+		max-width: 250px;
+	}
+	.nav-item {
+		font-size: 0.9em;
+	}
+
+	.product-card {
+		min-width: 100%;
+	}
+	.table-name {
+		font-size: 0.75em;
+	}
+	.manage-btn,
+	.order-price {
+		font-size: 0.7em;
+	}
+
+	.order-card {
+		max-width: 100%;
+	}
+	.order-item {
+		font-size: 0.6em;
+	}
+	.product-detail-item {
+		font-size: 0.7em;
+	}
+	.edit-product-btn {
+		font-size: 0.6em;
+	}
+}
+@media screen and (max-width: 400px) {
+	.nav-item {
+		font-size: 0.8em;
+	}
+}

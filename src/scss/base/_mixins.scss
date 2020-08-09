@@ -1,0 +1,84 @@
+@mixin roundButton($background-color) {
+	background-color: $background-color;
+	border-color: $background-color;
+	border-radius: 50%;
+	&:hover {
+		outline: none;
+		border-color: lighten($color: $background-color, $amount: 20) !important;
+		background-color: lighten(
+			$color: $background-color,
+			$amount: 20
+		) !important;
+	}
+	&:focus {
+		outline: none;
+		box-shadow: none;
+	}
+}
+
+@mixin regularButton($bg-color, $color) {
+	background-color: $bg-color !important;
+	border: none;
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+	color: $color;
+	&:hover {
+		background-color: lighten($color: $bg-color, $amount: 30) !important;
+		border: none !important;
+		color: $color !important;
+	}
+	&:focus {
+		outline: none !important;
+		box-shadow: none !important;
+		background-color: lighten($color: $bg-color, $amount: 30) !important;
+		border: none !important;
+		color: $color !important;
+	}
+}
+
+@mixin regularInput($width) {
+	background-color: #f6f6f6;
+	border: none;
+	color: #0d0d0d;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 5px;
+	width: $width;
+	border: 2px solid #f6f6f6;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+
+	&:focus {
+		background-color: #fff;
+		width: $width + 5%;
+		border-bottom: 2px solid $primary-color;
+	}
+
+	&::placeholder {
+		color: #cccccc;
+	}
+}
+
+@mixin scrollbar($color) {
+	&::-webkit-scrollbar {
+		width: 1em;
+	}
+
+	&::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $color;
+		outline: 1px solid darken($color: $color, $amount: 10);
+	}
+}

@@ -1,0 +1,22 @@
+.navbar-brand {
+	font-family: $primary-font;
+	color: $black !important;
+	font-size: 1.5em;
+}
+.nav-item {
+	margin: auto;
+}
+.antre-navbar {
+	background-color: $light-color;
+}
+.nav-text {
+	color: $secondary-color !important;
+	&:hover {
+		color: $black !important;
+		background-color: $pm-color-light;
+	}
+}
+
+.btn-create {
+	@include roundButton($primary-color);
+}
