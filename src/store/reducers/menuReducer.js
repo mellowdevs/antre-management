@@ -17,13 +17,13 @@ const initState = {
 const menuReducer = (state = initState, action) => {
 	switch (action.type) {
 		case 'ADD_MENU_ITEM':
-			return { ...state, menuError: '' };
+			return { ...state, menuError: '', menuSuccess: 'success' };
 		case 'UPDATE_MENU_ITEM':
 			return state;
 		case 'DELETE_MENU_ITEM':
 			return state;
 		case 'ADD_MENU_ITEM_ERROR':
-			return { ...state, menuError: 'Failed' };
+			return { ...state, menuError: 'Failed', menuSuccess: '' };
 		default:
 			return state;
 	}

@@ -15,6 +15,7 @@ const UpdateProduct = (props) => {
 	if (product) {
 		const state = {
 			id: id,
+			cid: product.cid,
 			name: product.name,
 			stock: product.stock,
 			price: product.price,
@@ -91,13 +92,34 @@ const UpdateProduct = (props) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
+	let item = {};
 	const id = ownProps.match.params.id;
-	const products = state.firestore.data.products;
-	const product = products ? products[id] : null;
+	const cid = ownProps.match.params.cid;
+	const items = state.firestore.data.items;
+	const itemDetails = items ? items[id] : null;
+	const categories = state.firestore.data.categories;
+	const thisCategory = categories ? categories[cid] : null;
+	if (itemDetails && thisCategory) {
+		item = {
+			cid: cid,
+			cname: thisCategory.name,
+			id: id,
+			name: itemDetails.name,
+			price: itemDetails.price,
+			stock: itemDetails.stock,
+		};
+	}
 	return {
-		product: product,
+		product: item,
 		auth: state.firebase.auth,
 	};
+	// const id = ownProps.match.params.id;
+	// const products = state.firestore.data.products;
+	// const product = products ? products[id] : null;
+	// return {
+	// 	product: product,
+	// 	auth: state.firebase.auth,
+	// };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -107,5 +129,17 @@ const mapDispatchToProps = (dispatch) => {
 };
 export default compose(
 	connect(mapStateToProps, mapDispatchToProps),
-	firestoreConnect([{ collection: 'products' }])
+	firestoreConnect((props) => {
+		const cid = props.match.params.cid;
+		return [
+			{
+				collection: `categories/${cid}/items`,
+				storeAs: 'items',
+			},
+			{
+				collection: `categories`,
+				storeAs: 'categories',
+			},
+		];
+	})
 )(UpdateProduct);

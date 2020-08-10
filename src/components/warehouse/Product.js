@@ -16,7 +16,7 @@ const Product = ({ product }) => {
 					<div className='row product-second-row'>
 						<div className='col-3  product-detail-col'>
 							<p className='product-detail-item product-detail-stock'>
-								<b>{product.stock} porsiyon</b>
+								<b>{product.stock} adet</b>
 							</p>
 						</div>
 						<div className='col-3 product-detail-col'>
@@ -26,7 +26,7 @@ const Product = ({ product }) => {
 						</div>
 						<div className='col-4 product-detail-col'>
 							<Link
-								to={'/update/' + product.id}
+								to={'/update/' + product.cid + '/' + product.id}
 								style={{ textDecoration: 'none' }}
 							>
 								<button className='btn edit-product-btn'>Güncelle</button>

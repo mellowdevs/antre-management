@@ -41,10 +41,15 @@
 	width: 100%;
 	text-align: start;
 }
-.add-menu-error {
-	color: $error-color;
+.add-menu-result {
 	display: block;
 	margin: auto;
+}
+.add-menu-error-text {
+	color: $error-color;
+}
+.add-menu-success-text {
+	color: $secondary-color;
 }
 .add-menu-error-div {
 	margin-top: 25px;
@@ -54,8 +59,7 @@
 	margin: auto;
 	margin-top: 20px;
 }
-.add-menu-container {
-}
+
 #dropdown-basic-button {
 	background-color: $secondary-color;
 	display: block;
@@ -73,4 +77,7 @@
 	&:focus {
 		background-color: $primary-color !important;
 	}
+}
+.btn-delete {
+	color: $error-color;
 }

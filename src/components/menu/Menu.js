@@ -16,7 +16,7 @@ class Menu extends Component {
 				<div className='container-fluid title-container text-center'>
 					<div className='row'>
 						<div className='col-12'>
-							<h5 className='component-title '>ANTRE MENÜ</h5>
+							<h5 className='component-title'>ANTRE MENÜ</h5>
 						</div>
 					</div>
 				</div>

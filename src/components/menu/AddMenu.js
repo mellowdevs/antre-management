@@ -16,12 +16,11 @@ class AddMenu extends Component {
 	handleChange = (e) => {
 		this.setState({ [e.target.id]: e.target.value });
 	};
-	addMenuItem;
 	handleSubmit = (e) => {
 		this.props.addMenuItem(this.state);
 	};
 	render() {
-		const { auth, categories, menuError } = this.props;
+		const { auth, categories, menuError, menuSuccess } = this.props;
 		if (!auth.uid) {
 			return <Redirect to='signin' />;
 		}
@@ -29,7 +28,7 @@ class AddMenu extends Component {
 			<div className='container-fluid add-menu-container'>
 				<div className='card add-menu-card shadow'>
 					<div className='card-title text-center'>
-						<h5 className='component-title add-menu-title'>Menüye Ekle</h5>
+						<h5 className='component-title add-expense-title'>Menüye Ekle</h5>
 					</div>
 					<div className='card-body'>
 						<div className='row'>
@@ -90,8 +89,17 @@ class AddMenu extends Component {
 							</div>
 						</div>
 						<div className='add-menu-error-div text-center'>
-							<p className='add-menu-error'>
-								{menuError ? <p>Kategori seçmelisin</p> : null}
+							<p className='add-menu-result'>
+								{menuError ? (
+									<p className='add-menu-error-text'>Kategori seçmelisin</p>
+								) : null}
+							</p>
+							<p className='add-menu-result'>
+								{menuSuccess ? (
+									<p className='add-menu-success-text'>
+										Ürün başarıyla eklendi
+									</p>
+								) : null}
 							</p>
 						</div>
 					</div>
@@ -104,6 +112,7 @@ const mapStateToProps = (state) => {
 	return {
 		auth: state.firebase.auth,
 		menuError: state.menu.menuError,
+		menuSuccess: state.menu.menuSuccess,
 		categories: state.firestore.ordered.categories,
 	};
 };

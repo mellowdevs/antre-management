@@ -6,9 +6,9 @@ import SignIn from './components/auth/SignIn';
 import OrderDetails from './components/orders/OrderDetails';
 import CreateOrder from './components/orders/CreateOrder';
 import Warehouse from './components/warehouse/Warehouse';
-import AddProduct from './components/warehouse/AddProduct';
 import UpdateProduct from './components/warehouse/UpdateProduct';
 import Menu from './components/menu/Menu';
+import Expenses from './components/expenses/Expenses';
 import UpdateMenuItem from './components/menu/UpdateMenuItem';
 function App() {
 	return (
@@ -19,7 +19,11 @@ function App() {
 					<Switch>
 						<Route exact path='/' component={Dashboard}></Route>
 						<Route exact path='/order/:id' component={OrderDetails}></Route>
-						<Route exact path='/update/:id' component={UpdateProduct}></Route>
+						<Route
+							exact
+							path='/update/:cid/:id'
+							component={UpdateProduct}
+						></Route>
 						<Route
 							exact
 							path='/item/:cid/:id'
@@ -28,8 +32,8 @@ function App() {
 						<Route exact path='/create' component={CreateOrder}></Route>
 						<Route exact path='/signin' component={SignIn}></Route>
 						<Route exact path='/warehouse' component={Warehouse}></Route>
-						<Route exact path='/add-product' component={AddProduct}></Route>
 						<Route exact path='/menu' component={Menu}></Route>
+						<Route exact path='/expenses' component={Expenses}></Route>
 					</Switch>
 				</div>
 			</div>

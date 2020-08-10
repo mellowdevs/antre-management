@@ -1,0 +1,30 @@
+.expense-item-descr {
+	font-size: 1.2em;
+	font-weight: 400 !important;
+}
+.expense-item-date {
+	font-size: 0.98em;
+	color: $secondary-color;
+}
+.expense-item-cost {
+	color: $error-color;
+	font-size: 1.1em;
+	font-weight: 400 !important;
+}
+.expense-jumbo {
+	margin-top: 10px;
+}
+.add-expense-card {
+	margin-top: 20px;
+}
+.add-expense-title {
+	font-size: 1.3em;
+}
+.add-expense-card input[type='text'] {
+	@include regularInput(90%);
+	height: 40px;
+}
+.add-expense-card input[type='number'] {
+	@include regularInput(90%);
+	height: 40px;
+}

@@ -134,6 +134,7 @@ button:focus {
 @media screen and (max-width: 400px) {
   .nav-item,
   .add-menu-title,
+  .add-expense-title,
   .categories-dd {
     font-size: 0.8em; }
 
@@ -765,10 +766,15 @@ h2.active {
   width: 100%;
   text-align: start; }
 
-.add-menu-error {
-  color: #c82333;
+.add-menu-result {
   display: block;
   margin: auto; }
+
+.add-menu-error-text {
+  color: #c82333; }
+
+.add-menu-success-text {
+  color: #297045; }
 
 .add-menu-error-div {
   margin-top: 25px; }
@@ -808,6 +814,85 @@ h2.active {
     color: #ffffff !important; }
   .add-menu-item-button:hover, .add-menu-item-button:focus {
     background-color: #ffd006 !important; }
+
+.btn-delete {
+  color: #c82333; }
+
+.expense-item-descr {
+  font-size: 1.2em;
+  font-weight: 400 !important; }
+
+.expense-item-date {
+  font-size: 0.98em;
+  color: #297045; }
+
+.expense-item-cost {
+  color: #c82333;
+  font-size: 1.1em;
+  font-weight: 400 !important; }
+
+.expense-jumbo {
+  margin-top: 10px; }
+
+.add-expense-card {
+  margin-top: 20px; }
+
+.add-expense-title {
+  font-size: 1.3em; }
+
+.add-expense-card input[type='text'] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 90%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  height: 40px; }
+  .add-expense-card input[type='text']:focus {
+    background-color: #fff;
+    width: 95%;
+    border-bottom: 2px solid #ffd006; }
+  .add-expense-card input[type='text']::placeholder {
+    color: #cccccc; }
+
+.add-expense-card input[type='number'] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 90%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  height: 40px; }
+  .add-expense-card input[type='number']:focus {
+    background-color: #fff;
+    width: 95%;
+    border-bottom: 2px solid #ffd006; }
+  .add-expense-card input[type='number']::placeholder {
+    color: #cccccc; }
 
 .navbar-brand {
   font-family: "Poppins";

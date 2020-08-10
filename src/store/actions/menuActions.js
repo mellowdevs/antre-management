@@ -14,6 +14,7 @@ export const addMenuItem = (item) => {
 			.add({
 				name: item.name,
 				price: item.price,
+				stock: 0,
 			})
 			.then(() => {
 				dispatch({ type: 'ADD_MENU_ITEM', item });

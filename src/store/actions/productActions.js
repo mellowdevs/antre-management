@@ -15,14 +15,19 @@ export const addProduct = (product) => {
 };
 export const updateProduct = (product) => {
 	const id = product.id;
+	const cid = product.cid;
 	return (dispatch, getState, { getFirebase, getFirestore }) => {
 		const firestore = getFirestore();
-		const ref = firestore.collection('products').doc(id);
+		const ref = firestore
+			.collection('categories')
+			.doc(cid)
+			.collection('items')
+			.doc(id);
 		ref
 			.update({
 				name: product.name,
-				stock: product.stock,
 				price: product.price,
+				stock: product.stock,
 			})
 			.then(function () {
 				dispatch({ type: 'UPDATE_PRODUCT', product });

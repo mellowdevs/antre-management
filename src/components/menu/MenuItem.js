@@ -11,7 +11,6 @@ const MenuItem = ({ item }) => {
 					<Link
 						to={'/item/' + item.cid + '/' + item.id}
 						cid={item.cid}
-						slm='slm'
 						style={{ textDecoration: 'none' }}
 					>
 						<button className='btn btn-sm'>
