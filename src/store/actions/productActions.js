@@ -27,12 +27,5 @@ export const updateProduct = (product) => {
 			.then(function () {
 				dispatch({ type: 'UPDATE_PRODUCT', product });
 			});
-		// make async call to DB
-		// const firestore = getFirestore();
-		// firestore.collection('products');
-		// .then(() => {
-		// 	dispatch({ type: 'UPDATE_PRODUCT', product });
-		// })
-		// .catch((err) => dispatch({ type: 'ADD_PRODUCT_ERROR', err }));
 	};
 };

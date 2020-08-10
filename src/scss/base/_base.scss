@@ -39,6 +39,10 @@ button:focus {
 	.add-product-card {
 		min-width: 70%;
 	}
+
+	.add-menu-card {
+		min-width: 80%;
+	}
 	.product-detail-item,
 	.edit-product-btn {
 		font-size: 0.9em;
@@ -62,7 +66,8 @@ button:focus {
 	.product-card {
 		min-width: 90%;
 	}
-	.add-product-card {
+	.add-product-card,
+	.add-menu-card {
 		min-width: 100%;
 	}
 	.product-detail-item,
@@ -122,21 +127,40 @@ button:focus {
 		padding: 1px;
 	}
 
-	.menu-update-title {
-		font-size: 0.9em;
+	.menu-update-title,
+	.add-menu-title {
+		font-size: 0.9em !important;
 	}
 	.product-name,
 	.product-price {
 		width: fit-content;
 		font-size: 0.6em !important;
 	}
+	#dropdown-basic-button {
+		font-size: 0.7em;
+	}
+
+	.add-product-button,
+	.add-menu-item-button {
+		font-size: 0.69em;
+	}
 }
 @media screen and (max-width: 400px) {
-	.nav-item {
+	.nav-item,
+	.add-menu-title,
+	.categories-dd {
 		font-size: 0.8em;
 	}
 	.update-menu-btn {
 		font-size: 0.6em;
+	}
+	#dropdown-basic-button {
+		font-size: 0.6em;
+	}
+
+	.add-product-button,
+	.add-menu-item-button {
+		font-size: 0.59em;
 	}
 }
 @media screen and (max-width: 290px) {

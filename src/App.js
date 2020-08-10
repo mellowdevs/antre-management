@@ -9,6 +9,7 @@ import Warehouse from './components/warehouse/Warehouse';
 import AddProduct from './components/warehouse/AddProduct';
 import UpdateProduct from './components/warehouse/UpdateProduct';
 import Menu from './components/menu/Menu';
+import AddMenu from './components/menu/AddMenu';
 import UpdateMenuItem from './components/menu/UpdateMenuItem';
 function App() {
 	return (

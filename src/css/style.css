@@ -40,6 +40,9 @@ button:focus {
   .add-product-card {
     min-width: 70%; }
 
+  .add-menu-card {
+    min-width: 80%; }
+
   .product-detail-item,
   .edit-product-btn {
     font-size: 0.9em; }
@@ -60,7 +63,8 @@ button:focus {
   .product-card {
     min-width: 90%; }
 
-  .add-product-card {
+  .add-product-card,
+  .add-menu-card {
     min-width: 100%; }
 
   .product-detail-item,
@@ -112,19 +116,36 @@ button:focus {
     max-width: fit-content;
     padding: 1px; }
 
-  .menu-update-title {
-    font-size: 0.9em; }
+  .menu-update-title,
+  .add-menu-title {
+    font-size: 0.9em !important; }
 
   .product-name,
   .product-price {
     width: fit-content;
-    font-size: 0.6em !important; } }
+    font-size: 0.6em !important; }
+
+  #dropdown-basic-button {
+    font-size: 0.7em; }
+
+  .add-product-button,
+  .add-menu-item-button {
+    font-size: 0.69em; } }
 @media screen and (max-width: 400px) {
-  .nav-item {
+  .nav-item,
+  .add-menu-title,
+  .categories-dd {
     font-size: 0.8em; }
 
   .update-menu-btn {
-    font-size: 0.6em; } }
+    font-size: 0.6em; }
+
+  #dropdown-basic-button {
+    font-size: 0.6em; }
+
+  .add-product-button,
+  .add-menu-item-button {
+    font-size: 0.59em; } }
 @media screen and (max-width: 290px) {
   .nav-item,
   .navbar-header {
@@ -608,7 +629,7 @@ h2.active {
   position: relative; }
 
 .menu-card {
-  max-width: 90%;
+  max-width: 80%;
   display: block;
   margin-top: 30px; }
 
@@ -677,6 +698,100 @@ h2.active {
     border-bottom: 2px solid #ffd006; }
   .update-menu-container input[type='number']::placeholder {
     color: #cccccc; }
+
+.add-menu-container input[type='text'] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 90%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  height: 50px; }
+  .add-menu-container input[type='text']:focus {
+    background-color: #fff;
+    width: 95%;
+    border-bottom: 2px solid #ffd006; }
+  .add-menu-container input[type='text']::placeholder {
+    color: #cccccc; }
+
+.add-menu-container input[type='number'] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 90%;
+  border: 2px solid #f6f6f6;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  height: 50px; }
+  .add-menu-container input[type='number']:focus {
+    background-color: #fff;
+    width: 95%;
+    border-bottom: 2px solid #ffd006; }
+  .add-menu-container input[type='number']::placeholder {
+    color: #cccccc; }
+
+.categories-nav {
+  width: 100%;
+  text-align: start; }
+
+.add-menu-card {
+  width: 70%;
+  margin: auto;
+  margin-top: 20px; }
+
+#dropdown-basic-button {
+  background-color: #297045;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  height: 40px; }
+
+.add-menu-item-button {
+  background-color: #297045 !important;
+  border: none;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  color: #ffffff;
+  color: #ffffff;
+  width: 70%;
+  height: 40px;
+  font-weight: 100; }
+  .add-menu-item-button:hover {
+    background-color: #6ac88f !important;
+    border: none !important;
+    color: #ffffff !important; }
+  .add-menu-item-button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: #6ac88f !important;
+    border: none !important;
+    color: #ffffff !important; }
+  .add-menu-item-button:hover, .add-menu-item-button:focus {
+    background-color: #ffd006 !important; }
 
 .navbar-brand {
   font-family: "Poppins";
