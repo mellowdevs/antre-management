@@ -7,6 +7,9 @@ class AddExpense extends Component {
 	state = {
 		descr: '',
 		date: new Date().toLocaleDateString('tr-TR'),
+		day: new Date().getDate(),
+		month: new Date().getMonth() + 1,
+		year: new Date().getFullYear(),
 		cost: 0,
 	};
 	date = new Date();

@@ -7,6 +7,9 @@ export const addExpense = (expense) => {
 				descr: expense.descr,
 				cost: expense.cost,
 				date: expense.date,
+				month: expense.month,
+				day: expense.day,
+				year: expense.year,
 				createdAt: firestore.FieldValue.serverTimestamp(),
 			})
 			.then(() => {
