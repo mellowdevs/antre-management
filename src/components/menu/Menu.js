@@ -7,7 +7,10 @@ import { compose } from 'redux';
 
 class Menu extends Component {
 	render() {
-		const { categories } = this.props;
+		const { categories, auth } = this.props;
+		if (!auth.uid) {
+			return <Redirect to='signin' />;
+		}
 		return (
 			<div className='container-fluid menu-container'>
 				<div className='container-fluid title-container text-center'>
@@ -26,6 +29,7 @@ class Menu extends Component {
 
 const mapStateToProps = (state) => {
 	return {
+		auth: state.firebase.auth,
 		categories: state.firestore.ordered.categories,
 	};
 };

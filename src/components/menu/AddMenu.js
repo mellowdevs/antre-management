@@ -22,14 +22,12 @@ class AddMenu extends Component {
 	};
 	render() {
 		const { auth, categories, menuError } = this.props;
-
-		console.log('propp', categories);
 		if (!auth.uid) {
 			return <Redirect to='signin' />;
 		}
 		return (
 			<div className='container-fluid add-menu-container'>
-				<div className='card add-menu-card'>
+				<div className='card add-menu-card shadow'>
 					<div className='card-title text-center'>
 						<h5 className='component-title add-menu-title'>Menüye Ekle</h5>
 					</div>
@@ -67,6 +65,7 @@ class AddMenu extends Component {
 										categories.map((category) => {
 											return (
 												<Dropdown.Item
+													key={category.id}
 													onClick={(e) => {
 														this.setState({ cid: category.id });
 														this.setState({ buttonName: category.name });
@@ -102,7 +101,6 @@ class AddMenu extends Component {
 	}
 }
 const mapStateToProps = (state) => {
-	console.log('ss', state);
 	return {
 		auth: state.firebase.auth,
 		menuError: state.menu.menuError,

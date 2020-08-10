@@ -23,13 +23,10 @@ const initState = {
 const productReducer = (state = initState, action) => {
 	switch (action.type) {
 		case 'ADD_PRODUCT':
-			console.log('created product', action.product);
 			return state;
 		case 'UPDATE_PRODUCT':
-			console.log('updated product', action.product);
 			return state;
 		case 'ADD_PRODUCT_ERROR':
-			console.log('error creating product', action.err);
 			return state;
 		default:
 			return state;

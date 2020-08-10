@@ -11,7 +11,6 @@ class OrderProductEntry extends Component {
 
 	handleClick = (e) => {
 		this.props.addOrderRow(this.state);
-		console.log(this.state);
 	};
 	render() {
 		return (

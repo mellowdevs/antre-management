@@ -5,13 +5,9 @@ const MenuItem = ({ item }) => {
 	return (
 		<li className='list-group-item'>
 			<div className='row'>
-				<div className='col-6'>
-					<p>{item.name}</p>
-				</div>
-				<div className='col-3'>
-					<p>{item.price}₺</p>
-				</div>
-				<div className='col-1'>
+				<div className='col-6 menu-item-detail'>{item.name}</div>
+				<div className='col-3 menu-item-detail'>{item.price}₺</div>
+				<div className='col-1 menu-item-detail'>
 					<Link
 						to={'/item/' + item.cid + '/' + item.id}
 						cid={item.cid}
@@ -19,7 +15,7 @@ const MenuItem = ({ item }) => {
 						style={{ textDecoration: 'none' }}
 					>
 						<button className='btn btn-sm'>
-							<i class='material-icons edit-icon'>edit</i>
+							<i className='material-icons edit-icon'>edit</i>
 						</button>
 					</Link>
 				</div>

@@ -23,7 +23,7 @@ class AddProduct extends Component {
 		}
 		return (
 			<div className='container-fluid add-product-container'>
-				<div className='card add-product-card'>
+				<div className='card add-product-card shadow'>
 					<div className='card-title text-center'>
 						<h5 className='component-title'>Ürün Ekle</h5>
 					</div>

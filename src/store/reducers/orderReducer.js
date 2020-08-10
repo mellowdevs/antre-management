@@ -20,7 +20,6 @@ const initState = {
 const orderReducer = (state = initState, action) => {
 	switch (action.type) {
 		case 'NEW_TABLE':
-			console.log('created product', action.table);
 	}
 	return state;
 };

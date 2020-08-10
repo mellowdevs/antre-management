@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
 	return (
-		<div className='card product-card'>
+		<div className='card product-card shadow'>
 			<div className='card-body table-card-body'>
 				<div className='card-text'>
 					<div className='row'>

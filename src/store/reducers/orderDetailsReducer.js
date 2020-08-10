@@ -7,7 +7,6 @@ const initState = {
 const orderDetailsReducer = (state = initState, action) => {
 	switch (action.type) {
 		case 'NEW_ORDER_ROW':
-			console.log('created product', action.orderRow);
 	}
 	return state;
 };

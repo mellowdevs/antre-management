@@ -151,11 +151,19 @@ button:focus {
 	.categories-dd {
 		font-size: 0.8em;
 	}
+	.menu-item-detail {
+		font-size: 0.8em;
+	}
 	.update-menu-btn {
 		font-size: 0.6em;
 	}
 	#dropdown-basic-button {
 		font-size: 0.6em;
+	}
+	.menu-card {
+		width: fit-content;
+		display: block;
+		margin: auto;
 	}
 
 	.add-product-button,

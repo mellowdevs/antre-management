@@ -13,7 +13,6 @@ const UpdateMenuItem = (props) => {
 	const cid = props.match.params.cid;
 	const id = props.match.params.id;
 	const { item, auth } = props;
-	console.log(item);
 	if (!auth.uid) {
 		return <Redirect to='/signin' />;
 	}
@@ -36,7 +35,7 @@ const UpdateMenuItem = (props) => {
 		};
 		return (
 			<div className='container-fluid update-menu-container'>
-				<div className='card add-product-card'>
+				<div className='card add-product-card shadow'>
 					<div className='card-title text-center'>
 						<h5 className='component-title menu-update-title'>Menü Güncelle</h5>
 					</div>

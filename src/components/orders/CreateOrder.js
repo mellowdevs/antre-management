@@ -12,7 +12,6 @@ class CreateOrder extends Component {
 	};
 	handleClick = (e) => {
 		this.props.addTable(this.state);
-		console.log(this.state);
 	};
 	render() {
 		const { auth } = this.props;
@@ -21,7 +20,7 @@ class CreateOrder extends Component {
 		}
 		return (
 			<div className='container create-order'>
-				<div className='card order-create-card'>
+				<div className='card order-create-card shadow'>
 					<div className='card-body create-card-body'>
 						<div className='select-div'>
 							<select
@@ -68,4 +67,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps	, mapDispatchToProps)(CreateOrder);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateOrder);

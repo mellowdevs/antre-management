@@ -29,24 +29,26 @@ class MenuCategory extends Component {
 				this.setState({ items: items });
 			})
 			.catch((error) => {
-				console.log(error);
+				console.error(error);
 			});
 	}
 	render() {
 		const { category } = this.props;
 		const items = this.state.items;
 		return (
-			<div class='card menu-card'>
-				<div class='card-body menu-card-body'>
-					<h5 class='card-title menu-category-title'>{category.name}</h5>
-					<p class='card-text'>
-						<ul className='list-group'>
+			<div className='card menu-card shadow'>
+				<div className='card-body menu-card-body'>
+					<h5 className='card-title menu-category-title  menu-item-detail'>
+						{category.name}
+					</h5>
+					<div className='card-text'>
+						<ul className='list-group '>
 							{items &&
 								items.map((item) => {
 									return <MenuItem item={item} key={item.id} />;
 								})}
 						</ul>
-					</p>
+					</div>
 				</div>
 			</div>
 		);

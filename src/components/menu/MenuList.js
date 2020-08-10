@@ -15,7 +15,7 @@ const MenuList = ({ categories }) => {
 							{results &&
 								results.map((category) => {
 									return (
-										<Nav.Item className='categories-nav'>
+										<Nav.Item className='categories-nav' key={category.id}>
 											<Nav.Link eventKey={category.id}>
 												{category.name}
 											</Nav.Link>
@@ -32,7 +32,7 @@ const MenuList = ({ categories }) => {
 							{results &&
 								results.map((category) => {
 									return (
-										<Tab.Pane eventKey={category.id}>
+										<Tab.Pane key={category.id} eventKey={category.id}>
 											<MenuCategory
 												category={category}
 												cid={category.id}

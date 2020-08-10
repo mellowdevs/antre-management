@@ -10,7 +10,7 @@ const OrderDetails = (props) => {
 	}
 	return (
 		<div className='container section order-details'>
-			<div className='card order-card'>
+			<div className='card order-card shadow'>
 				<div className='card-body table-card-body'>
 					<h5 className='card-title '>
 						<div className='row'>
