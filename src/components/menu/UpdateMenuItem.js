@@ -25,7 +25,9 @@ const UpdateMenuItem = (props) => {
 			price: item.price,
 		};
 		const handleChange = (e) => {
-			state[e.target.id] = parseInt(e.target.value) || e.target.value;
+			state[e.target.id] =
+				parseFloat(e.target.value) ||
+				e.target.value;
 		};
 		const handleUpdate = (e) => {
 			props.updateMenuItem(state);

@@ -10,6 +10,7 @@ import firebase from 'firebase';
 class Expenses extends Component {
 	state = {
 		daily: 0,
+		monthly: 0,
 	};
 
 	componentDidUpdate() {
@@ -26,7 +27,6 @@ class Expenses extends Component {
 				let dailyCost = 0;
 				let monthlyCost = 0;
 				let yearCost = 0;
-				let weeklyCost = 0;
 				response.forEach((doc) => {
 					const expense = doc.data();
 					if (expense.date === today) {

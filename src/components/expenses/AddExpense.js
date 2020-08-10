@@ -15,7 +15,7 @@ class AddExpense extends Component {
 	date = new Date();
 	handleChange = (e) => {
 		this.setState({
-			[e.target.id]: parseInt(e.target.value) || e.target.value,
+			[e.target.id]: parseFloat(e.target.value) || e.target.value,
 		});
 	};
 	handleSubmit = (e) => {

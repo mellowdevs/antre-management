@@ -14,7 +14,9 @@ class AddMenu extends Component {
 		buttonName: 'Kategoriler',
 	};
 	handleChange = (e) => {
-		this.setState({ [e.target.id]: e.target.value });
+		this.setState({
+			[e.target.id]: parseFloat(e.target.value) || e.target.value,
+		});
 	};
 	handleSubmit = (e) => {
 		this.props.addMenuItem(this.state);
