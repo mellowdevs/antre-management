@@ -1,6 +1,10 @@
 export const addMenuItem = (item) => {
 	const cid = item.cid;
-	console.log(cid);
+	if (!cid) {
+		return (dispatch, getState, { getFirebase, getFirestore }) => {
+			dispatch({ type: 'ADD_MENU_ITEM_ERROR', err: 'no_category' });
+		};
+	}
 	return (dispatch, getState, { getFirebase, getFirestore }) => {
 		const firestore = getFirestore();
 		firestore

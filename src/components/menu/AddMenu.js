@@ -21,7 +21,7 @@ class AddMenu extends Component {
 		this.props.addMenuItem(this.state);
 	};
 	render() {
-		const { auth, categories } = this.props;
+		const { auth, categories, menuError } = this.props;
 
 		console.log('propp', categories);
 		if (!auth.uid) {
@@ -90,6 +90,11 @@ class AddMenu extends Component {
 								</Link>
 							</div>
 						</div>
+						<div className='add-menu-error-div text-center'>
+							<p className='add-menu-error'>
+								{menuError ? <p>Kategori seçmelisin</p> : null}
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -100,6 +105,7 @@ const mapStateToProps = (state) => {
 	console.log('ss', state);
 	return {
 		auth: state.firebase.auth,
+		menuError: state.menu.menuError,
 		categories: state.firestore.ordered.categories,
 	};
 };

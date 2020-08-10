@@ -18,7 +18,7 @@ const menuReducer = (state = initState, action) => {
 	switch (action.type) {
 		case 'ADD_MENU_ITEM':
 			console.log('created item', action.item);
-			return state;
+			return { ...state, menuError: '' };
 		case 'UPDATE_MENU_ITEM':
 			console.log('updated item', action.item);
 			return state;
@@ -27,7 +27,7 @@ const menuReducer = (state = initState, action) => {
 			return state;
 		case 'ADD_MENU_ITEM_ERROR':
 			console.log('error creating item', action.err);
-			return state;
+			return { ...state, menuError: 'Failed' };
 		default:
 			return state;
 	}

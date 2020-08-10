@@ -41,7 +41,14 @@
 	width: 100%;
 	text-align: start;
 }
-
+.add-menu-error {
+	color: $error-color;
+	display: block;
+	margin: auto;
+}
+.add-menu-error-div {
+	margin-top: 25px;
+}
 .add-menu-card {
 	width: 70%;
 	margin: auto;
