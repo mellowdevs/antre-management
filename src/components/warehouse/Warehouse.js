@@ -33,7 +33,6 @@ class Warehouse extends Component {
 						.collection('categories')
 						.doc(doc.id)
 						.collection('items')
-						.orderBy('name', 'asc')
 						.get()
 						.then((response) => {
 							response.forEach((doc) => {

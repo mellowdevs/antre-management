@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Stats from './Stats';
-import OrderList from '../orders/OrderList';
+import TableList from '../orders/TableList';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
@@ -16,7 +16,7 @@ class Dashboard extends Component {
 			<div className='dashboard container'>
 				<div className='row'>
 					<div className='col-12 col-md-6 left-dash'>
-						<OrderList />
+						<TableList />
 					</div>
 					<div className='col-12 col-md-5 offset-md-1 right-dash'>
 						<Stats />

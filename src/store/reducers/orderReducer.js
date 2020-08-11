@@ -19,7 +19,18 @@ const initState = {
 };
 const orderReducer = (state = initState, action) => {
 	switch (action.type) {
-		case 'NEW_TABLE':
+		case 'ADD_TABLE_ERROR':
+			return {
+				...state,
+				orderError: action.orderError,
+			};
+		case 'ADD_TABLE':
+			return {
+				...state,
+				orderError: '',
+			};
+		default:
+			return state;
 	}
 	return state;
 };

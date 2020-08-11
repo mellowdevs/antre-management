@@ -216,26 +216,26 @@ button:focus {
 .manage-btn,
 .add-drop-btn,
 .save-order-btn {
-  background-color: #ffd006 !important;
+  background-color: #297045 !important;
   border: none;
   display: block;
   margin: auto;
   margin-top: 10px;
-  color: #000000; }
+  color: #ffffff; }
   .manage-btn:hover,
   .add-drop-btn:hover,
   .save-order-btn:hover {
-    background-color: #ffed9f !important;
+    background-color: #6ac88f !important;
     border: none !important;
-    color: #000000 !important; }
+    color: #ffffff !important; }
   .manage-btn:focus,
   .add-drop-btn:focus,
   .save-order-btn:focus {
     outline: none !important;
     box-shadow: none !important;
-    background-color: #ffed9f !important;
+    background-color: #6ac88f !important;
     border: none !important;
-    color: #000000 !important; }
+    color: #ffffff !important; }
 
 .product-number {
   width: 100%; }
@@ -244,22 +244,75 @@ button:focus {
   margin-top: 10px;
   margin-bottom: 5px; }
 
-.btn-add-a-row {
-  background-color: #ffd006;
-  border-color: #ffd006;
-  border-radius: 50%; }
-  .btn-add-a-row:hover {
+.btn-add-entry {
+  background-color: #297045;
+  border-color: #297045;
+  border-radius: 50%;
+  color: #ffffff !important; }
+  .btn-add-entry:hover {
     outline: none;
-    border-color: #ffe36c !important;
-    background-color: #ffe36c !important; }
-  .btn-add-a-row:focus {
+    border-color: #44bb73 !important;
+    background-color: #44bb73 !important; }
+  .btn-add-entry:focus {
     outline: none;
     box-shadow: none; }
+  .btn-add-entry:hover, .btn-add-entry:focus {
+    color: #ffffff !important; }
+
+.btn-remove-entry {
+  background-color: #c82333;
+  border-color: #c82333;
+  border-radius: 50%;
+  color: #ffffff !important; }
+  .btn-remove-entry:hover {
+    outline: none;
+    border-color: #e56c78 !important;
+    background-color: #e56c78 !important; }
+  .btn-remove-entry:focus {
+    outline: none;
+    box-shadow: none; }
+  .btn-remove-entry:hover, .btn-remove-entry:focus {
+    color: #ffffff !important; }
 
 .order-create-card {
   max-width: 500px;
   margin: auto;
-  margin-top: 30px; }
+  margin-top: 40px; }
+
+.add-table-title {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.2em; }
+
+#dropdown-table-button {
+  background-color: #297045;
+  display: block;
+  margin: auto;
+  width: 80%;
+  margin-bottom: 20px; }
+
+#dropdown-category-button {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  display: block;
+  margin: auto;
+  width: 80%;
+  margin-bottom: 20px; }
+
+#dropdown-item-button {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  display: block;
+  margin: auto;
+  width: 80%;
+  margin-bottom: 20px; }
+
+.dropdown-menu {
+  width: 80% !important; }
 
 .wrapper {
   display: flex;
