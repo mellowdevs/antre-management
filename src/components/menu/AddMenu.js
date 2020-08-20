@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
-import { firestoreConnect } from 'react-redux-firebase';
+import { firebaseConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { addMenuItem } from '../../store/actions/menuActions';
 class AddMenu extends Component {
@@ -63,16 +63,16 @@ class AddMenu extends Component {
 									title={this.state.buttonName}
 								>
 									{categories &&
-										categories.map((category) => {
+										categories.map((category, index) => {
 											return (
 												<Dropdown.Item
-													key={category.id}
+													key={index}
 													onClick={(e) => {
-														this.setState({ cid: category.id });
-														this.setState({ buttonName: category.name });
+														this.setState({ cid: category.key });
+														this.setState({ buttonName: category.value.name });
 													}}
 												>
-													{category.name}
+													{category.value.name}
 												</Dropdown.Item>
 											);
 										})}
@@ -115,7 +115,7 @@ const mapStateToProps = (state) => {
 		auth: state.firebase.auth,
 		menuError: state.menu.menuError,
 		menuSuccess: state.menu.menuSuccess,
-		categories: state.firestore.ordered.categories,
+		categories: state.firebase.ordered.categories,
 	};
 };
 
@@ -125,8 +125,6 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 export default compose(
-	firestoreConnect(() => [
-		{ collection: 'categories', orderBy: ['name', 'asc'] },
-	]),
+	firebaseConnect({ path: 'categories', queryParams: ['orderByKey'] }),
 	connect(mapStateToProps, mapDispatchToProps)
 )(AddMenu);

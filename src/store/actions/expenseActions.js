@@ -20,7 +20,6 @@ export const addExpense = (expense) => {
 };
 export const deleteExpense = (expense) => {
 	return (dispatch, getState, { getFirestore }) => {
-		console.log(expense.id);
 		const firestore = getFirestore();
 		firestore
 			.collection('expenses')

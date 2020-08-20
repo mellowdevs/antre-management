@@ -3,150 +3,166 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { Redirect } from 'react-router-dom';
-import { addTable, updateWarehouse } from '../../store/actions/orderAction';
+import { addTable } from '../../store/actions/orderAction';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
 import firebase from 'firebase';
+import { Link } from 'react-router-dom';
 
 class CreateOrder extends Component {
 	state = {
-		tname: '',
-		tid: '',
-		cid: '1',
 		cname: '',
-		items: [{}],
+		cid: '1',
 		currEntry: '',
-		orders: [],
+		categoryItems: [],
+		addedEntries: [],
+		prevCid: '1',
+		tid: '1',
 	};
-	handleChange = (e) => {
-		this.setState({ [e.target.id]: e.target.value });
-	};
-	saveOrder = (e) => {
-		// this.props.updateWarehouse(this.state);
+
+	save() {
 		this.props.addTable(this.state);
-	};
-	addEntry = (entry) => {
+	}
+	clearStates() {
+		this.setState({ cid: '1' });
+		this.setState({ cname: '' });
+		this.setState({ currEntry: '' });
+		this.setState({ categoryItems: [] });
+		this.setState({ addedEntries: [] });
+	}
+
+	addEntry(currEntry) {
 		if (this.state.currEntry) {
-			let results = this.state.orders.filter((order) => {
-				return order.id === entry.id;
+			let results = this.state.addedEntries.filter((entry) => {
+				return entry.id === currEntry.id;
 			});
 			if (results.length === 0) {
-				this.state.orders.push({
-					...entry,
-					count: 1,
-					stock: entry.stock || 0,
-					total: entry.price,
+				this.state.addedEntries.push({
+					total: currEntry.price,
 					cid: this.state.cid,
+					id: currEntry.id,
+					price: currEntry.price,
+					name: currEntry.name,
+					count: 1,
+					stock: currEntry.stock || 0,
 				});
+				console.log('l', this.state.addedEntries);
+				console.log(this.props);
 			} else {
-				const newOrders = [];
-				this.state.orders.forEach((order) => {
-					if (order.id === entry.id) {
-						const currCount = order.count + 1;
-						newOrders.push({
+				const updatedEntries = [];
+				this.state.addedEntries.forEach((entry) => {
+					if (entry.id === currEntry.id) {
+						const currCount = entry.count + 1;
+						updatedEntries.push({
 							count: currCount,
-							id: order.id,
-							name: order.name,
-							price: order.price,
-							stock: order.stock,
-							total: order.price * currCount,
+							id: entry.id,
+							name: entry.name,
+							price: entry.price,
+							stock: entry.stock,
+							total: entry.price * currCount,
 							cid: this.state.cid,
 						});
 					} else {
-						newOrders.push({ ...order });
+						updatedEntries.push({ ...entry });
 					}
 				});
-				this.setState({ orders: newOrders });
+				this.setState({ addedEntries: updatedEntries });
 			}
 		}
-	};
+	}
+	setCategory(category) {
+		this.setState({ cid: category.id });
+		this.setState({ cname: category.name });
+		this.setState({ currEntry: '' });
+	}
+	setItem(item) {
+		this.setState({ currEntry: item });
+	}
 
-	removeEntry = (entry) => {
+	removeEntry = (currEntry) => {
 		if (this.state.currEntry) {
-			let results = this.state.orders.filter((order) => {
-				return order.id === entry.id;
+			let results = this.state.addedEntries.filter((entry) => {
+				return entry.id === currEntry.id;
 			});
 			if (results.length !== 0) {
-				const newOrders = [];
-				this.state.orders.forEach((order) => {
-					if (order.id === entry.id) {
-						console.log('yo');
-						if (order.count !== 1) {
-							const currCount = order.count - 1;
-							newOrders.push({
+				const updatedEntries = [];
+				this.state.addedEntries.forEach((entry) => {
+					if (entry.id === currEntry.id) {
+						if (entry.count !== 1) {
+							const currCount = entry.count - 1;
+							updatedEntries.push({
 								count: currCount,
-								id: order.id,
-								name: order.name,
-								price: order.price,
-								stock: order.stock,
-								total: order.price * currCount,
+								id: entry.id,
+								name: entry.name,
+								price: entry.price,
+								stock: entry.stock,
+								total: entry.price * currCount,
 								cid: this.state.cid,
 							});
 						}
 					} else {
-						newOrders.push({ ...order });
+						updatedEntries.push({ ...entry });
 					}
 				});
-				this.setState({ orders: newOrders });
+				this.setState({ addedEntries: updatedEntries });
 			}
 		}
 	};
-	componentDidUpdate() {
+
+	componentDidMount() {
 		const database = firebase.firestore();
+		const tid = this.props.match.params.id;
+		this.setState({ tid: tid });
 		database
-			.collection('categories')
-			.doc(this.state.cid)
-			.collection('items')
-			.orderBy('name', 'asc')
+			.collection('tables')
+			.doc(tid)
 			.get()
 			.then((response) => {
-				const items = [];
-				response.forEach((doc) => {
-					const item = {
-						id: doc.id,
-						...doc.data(),
-					};
-					items.push(item);
-				});
-				this.setState({ items: items });
-			})
-			.catch((error) => {
-				console.error(error);
+				this.setState({ tname: response.data().name });
 			});
 	}
 
+	componentDidUpdate() {
+		const prevCid = this.state.prevCid;
+
+		if (this.state.cid !== prevCid) {
+			this.setState({ prevCid: this.state.cid });
+			const database = firebase.firestore();
+			database
+				.collection('categories')
+				.doc(this.state.cid)
+				.collection('items')
+				.orderBy('name', 'asc')
+				.get()
+				.then((response) => {
+					const categoryItems = [];
+					response.forEach((doc) => {
+						const item = {
+							id: doc.id,
+							...doc.data(),
+						};
+						categoryItems.push(item);
+					});
+					this.setState({ categoryItems: categoryItems });
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+		}
+	}
 	render() {
-		const { auth, tables, categories, orderError } = this.props;
+		const { auth, categories, orderError, orderSuccess } = this.props;
 		if (!auth.uid) {
 			return <Redirect to='signin' />;
 		}
+
 		return (
 			<div className='container create-order'>
 				<div className='card order-create-card shadow'>
-					<h5 className='component-title add-table-title'>Yeni Adisyon</h5>
+					<h5 className='component-title add-table-title'>
+						{this.state.tname}
+					</h5>
 					<div className='card-body create-card-body'>
 						<div className='row'>
-							<div className='col-12 table-col'>
-								<DropdownButton
-									id='dropdown-table-button'
-									title={this.state.tname || 'Masa Seç'}
-								>
-									{tables &&
-										tables.map((table) => {
-											return table.isTaken ? null : (
-												<Dropdown.Item
-													className='dropdown-table-item'
-													key={table.id}
-													onClick={(e) => {
-														this.setState({ tid: table.id });
-														this.setState({ tname: table.name });
-													}}
-												>
-													{table.name}
-												</Dropdown.Item>
-											);
-										})}
-								</DropdownButton>
-							</div>
 							<div className='col-12'>
 								<DropdownButton
 									id='dropdown-category-button'
@@ -158,9 +174,7 @@ class CreateOrder extends Component {
 												<Dropdown.Item
 													key={category.id}
 													onClick={(e) => {
-														this.setState({ cid: category.id });
-														this.setState({ cname: category.name });
-														this.setState({ currEntry: '' });
+														this.setCategory(category);
 													}}
 												>
 													{category.name}
@@ -176,13 +190,13 @@ class CreateOrder extends Component {
 									id='dropdown-item-button'
 									title={this.state.currEntry.name || 'Ürün Seç'}
 								>
-									{this.state.items &&
-										this.state.items.map((item) => {
+									{this.state.categoryItems &&
+										this.state.categoryItems.map((item) => {
 											return (
 												<Dropdown.Item
 													key={item.id}
 													onClick={(e) => {
-														this.setState({ currEntry: item });
+														this.setItem(item);
 													}}
 												>
 													{item.name}
@@ -191,42 +205,77 @@ class CreateOrder extends Component {
 										})}
 								</DropdownButton>
 							</div>
-							<div className='col-4 offset-2 '>
-								<button
-									className='btn btn-add-entry'
-									onClick={(e) => this.addEntry(this.state.currEntry)}
-								>
-									+
-								</button>
-							</div>
+						</div>
+						<div className='row'>
 							<div className='col-4 offset-2 '>
 								<button
 									className='btn btn-remove-entry'
-									onClick={(e) => this.removeEntry(this.state.currEntry)}
+									onClick={(e) => {
+										this.removeEntry(this.state.currEntry);
+									}}
 								>
 									-
 								</button>
 							</div>
+							<div className='col-4 offset-2 '>
+								<button
+									className='btn btn-add-entry'
+									onClick={(e) => {
+										this.addEntry(this.state.currEntry);
+									}}
+								>
+									+
+								</button>
+							</div>
 						</div>
-						<div className='added-list'>
-							<ul className='list-group'>
-								{this.state.orders &&
-									this.state.orders.map((order) => {
-										return (
-											<li className='list-group-item'>
-												{order.count} {order.name}
-											</li>
-										);
-									})}
-							</ul>
+						<div className='row'>
+							<div className='col-12'>
+								<div className='added-list'>
+									<ul className='list-group'>
+										{this.state.addedEntries &&
+											this.state.addedEntries.map((entry) => {
+												return (
+													<li className='list-group-item'>
+														{entry.count} {entry.name}
+													</li>
+												);
+											})}
+									</ul>
+								</div>
+							</div>
 						</div>
-						<button className='btn save-order-btn' onClick={this.saveOrder}>
-							Kaydet
-						</button>
+						<div className='row'>
+							<div className='col-6'>
+								<button
+									className='btn cancel-order-btn'
+									onClick={(e) => this.clearStates()}
+								>
+									Temizle
+								</button>
+							</div>
+							<div className='col-6'>
+								<ConditionalLink
+									to='/'
+									condition={
+										this.state.addedEntries.length > 0 && this.state.cid
+									}
+								>
+									<button
+										className='btn save-order-btn'
+										onClick={(e) => this.save()}
+									>
+										Kaydet
+									</button>
+								</ConditionalLink>
+							</div>
+						</div>
 						<div className='add-menu-error-div text-center'>
 							<p className='add-menu-result'>
 								{orderError ? (
 									<p className='add-menu-error-text'>{orderError}</p>
+								) : null}
+								{orderSuccess ? (
+									<p className='add-menu-success-text'>Adisyon kaydedildi.</p>
 								) : null}
 							</p>
 						</div>
@@ -236,28 +285,27 @@ class CreateOrder extends Component {
 		);
 	}
 }
+
+const ConditionalLink = ({ children, to, condition }) =>
+	!!condition && to ? <Link to={to}>{children}</Link> : <>{children}</>;
 const mapStateToProps = (state) => {
 	return {
 		auth: state.firebase.auth,
-		tables: state.firestore.ordered.tables,
 		categories: state.firestore.ordered.categories,
 		orderError: state.order.orderError,
+		orderSuccess: state.order.orderSuccess,
 	};
 };
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		addTable: (table) => dispatch(addTable(table)),
-		updateWarehouse: (table) => dispatch(updateWarehouse(table)),
 	};
 };
 
 export default compose(
 	connect(mapStateToProps, mapDispatchToProps),
 	firestoreConnect(() => {
-		return [
-			{ collection: 'tables', orderBy: 'name' },
-			{ collection: 'categories', orderBy: 'name' },
-		];
+		return [{ collection: 'categories', orderBy: 'name' }];
 	})
 )(CreateOrder);

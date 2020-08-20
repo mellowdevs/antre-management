@@ -9,8 +9,7 @@ const MenuItem = ({ item }) => {
 				<div className='col-3 menu-item-detail'>{item.price}₺</div>
 				<div className='col-1 menu-item-detail'>
 					<Link
-						to={'/item/' + item.cid + '/' + item.id}
-						cid={item.cid}
+						to={'/item/' + item.cid + '/' + item.key}
 						style={{ textDecoration: 'none' }}
 					>
 						<button className='btn btn-sm'>

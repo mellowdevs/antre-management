@@ -23,11 +23,25 @@ const orderReducer = (state = initState, action) => {
 			return {
 				...state,
 				orderError: action.orderError,
+				orderSuccess: '',
 			};
 		case 'ADD_TABLE':
 			return {
 				...state,
 				orderError: '',
+				orderSuccess: 'success',
+			};
+		case 'UPDATE_TABLE_ERROR':
+			return {
+				...state,
+				updateError: action.orderError,
+				updateSuccess: '',
+			};
+		case 'UPDATE_TABLE':
+			return {
+				...state,
+				updateError: '',
+				updateSuccess: 'success',
 			};
 		default:
 			return state;

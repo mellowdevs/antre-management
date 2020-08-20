@@ -6,36 +6,46 @@ export const addMenuItem = (item) => {
 		};
 	}
 	return (dispatch, getState, { getFirebase, getFirestore }) => {
-		const firestore = getFirestore();
-		firestore
-			.collection('categories')
-			.doc(cid)
-			.collection('items')
-			.add({
+		console.log('gelen item', item);
+		const database = getFirebase();
+		database
+			.ref(`categories/${cid}/items/`)
+			.push({
 				name: item.name,
 				price: item.price,
 				stock: 0,
 			})
-			.then(() => {
+			.then(function () {
 				dispatch({ type: 'ADD_MENU_ITEM', item });
-			})
-			.catch((err) => dispatch({ type: 'ADD_MENU_ITEM_ERROR', err }));
+			});
+		// const firestore = getFirestore();
+		// firestore
+		// 	.collection('categories')
+		// 	.doc(cid)
+		// 	.collection('items')
+		// 	.add({
+		// 		name: item.name,
+		// 		price: item.price,
+		// 		stock: 0,
+		// 	})
+		// 	.then(() => {
+		// 		dispatch({ type: 'ADD_MENU_ITEM', item });
+		// 	})
+		// 	.catch((err) => dispatch({ type: 'ADD_MENU_ITEM_ERROR', err }));
 	};
 };
 export const updateMenuItem = (item) => {
+	console.log('gelen', item);
 	const id = item.id;
 	const cid = item.cid;
 	return (dispatch, getState, { getFirebase, getFirestore }) => {
-		const firestore = getFirestore();
-		const ref = firestore
-			.collection('categories')
-			.doc(cid)
-			.collection('items')
-			.doc(id);
-		ref
+		const database = getFirebase();
+		database
+			.ref(`categories/${cid}/items/${id}`)
 			.update({
 				name: item.name,
 				price: item.price,
+				stock: item.stock,
 			})
 			.then(function () {
 				dispatch({ type: 'UPDATE_MENU_ITEM', item });
@@ -47,13 +57,10 @@ export const deleteMenuItem = (item) => {
 	const id = item.id;
 	const cid = item.cid;
 	return (dispatch, getState, { getFirebase, getFirestore }) => {
-		const firestore = getFirestore();
-		firestore
-			.collection('categories')
-			.doc(cid)
-			.collection('items')
-			.doc(id)
-			.delete()
+		const database = getFirebase();
+		database
+			.ref(`categories/${cid}/items/${id}`)
+			.remove()
 			.then(function () {
 				dispatch({ type: 'DELETE_MENU_ITEM', item });
 			});

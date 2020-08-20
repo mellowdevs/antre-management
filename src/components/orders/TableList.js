@@ -2,21 +2,21 @@ import React, { Component } from 'react';
 import Table from './Table';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
-import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
+import firebase from 'firebase';
 
 class TableList extends Component {
 	state = {};
+
 	render() {
 		const { tables } = this.props;
 
 		return (
-			<div className='orderlist section'>
+			<div className='orderlist tables-flex section'>
+				<h5>{this.state.title}</h5>
 				{tables &&
 					tables.map((table) => {
-						return table.isTaken ? (
-							<Table table={table} key={table.id} />
-						) : null;
+						return <Table table={table} key={table.id} />;
 					})}
 			</div>
 		);

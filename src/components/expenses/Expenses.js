@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
+import { connect } from 'react-redux';
 import ExpenseItem from './ExpenseItem';
 import AddExpense from './AddExpense';
 import firebase from 'firebase';
 
 class Expenses extends Component {
 	state = {
+		prevCount: 0,
 		daily: 0,
 		monthly: 0,
 	};

@@ -1,10 +1,15 @@
 .order-card {
-	width: 400px;
-	display: block;
-	margin: auto;
-	margin-top: 50px;
+	width: 200px;
+	height: 200px;
+	margin: 50px 20px;
 }
-
+.tables-flex {
+	margin: 10px 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
 .table-name {
 	color: $secondary-color;
 	display: block;
@@ -12,6 +17,12 @@
 }
 .order-details-body.list-group {
 	margin-top: 10px;
+}
+.table-card-body {
+	width: fit-content;
+	display: block;
+	max-height: 100px !important;
+	margin: auto;
 }
 .edit-btn {
 	@include roundButton($primary-color);
@@ -43,8 +54,15 @@
 .save-order-btn {
 	@include regularButton($secondary-color, $white);
 }
+.cancel-order-btn {
+	@include regularButton($error-color, $white);
+}
 .product-number {
 	width: 100%;
+}
+
+.taken-table {
+	background-color: $light-color;
 }
 .product-entry {
 	margin-top: 10px;
@@ -86,9 +104,9 @@
 	margin-bottom: 20px;
 }
 #dropdown-category-button {
-	background-color: $white;
-	color: $black;
-	border: 1px solid $black;
+	background-color: $secondary-color;
+	color: $white;
+	border: 1px solid $secondary-color;
 	display: block;
 	margin: auto;
 	width: 80%;
@@ -105,4 +123,37 @@
 }
 .dropdown-menu {
 	width: 80% !important;
+}
+.added-list {
+	margin-top: 15px;
+}
+.table-details-card {
+	display: block;
+	margin: auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.table-name-detail {
+	font-size: 1.5em;
+}
+
+.order-item {
+	padding: 5px !important;
+}
+.order-detail-btn {
+	font-size: 1.5em;
+	max-width: 90%;
+	font-weight: 500 !important;
+}
+.add-order-btn {
+	color: $secondary-color;
+	border: 1px solid $black;
+}
+
+.subtr-order-btn {
+	color: $error-color;
+	border: 1px solid $black;
+}
+.prod-price {
+	text-align: right;
 }

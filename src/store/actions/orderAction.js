@@ -1,58 +1,7 @@
-import { updateMenuItem } from './menuActions';
-
-export const updateWarehouse = (table) => {
-	const tid = table.tid;
-	const orders = table.orders;
-	if (!tid) {
-		return (dispatch, getState, { getFirebase, getFirestore }) => {
-			dispatch({ type: 'ADD_TABLE_ERROR', orderError: 'Masa Seçmelisin.' });
-		};
-	}
-	if (orders.length === 0) {
-		return (dispatch, getState, { getFirebase, getFirestore }) => {
-			dispatch({ type: 'ADD_TABLE_ERROR', orderError: 'Ürün seçmelisin.' });
-		};
-	}
-	return (dispatch, getState, { getFirestore }) => {
-		const firestore = getFirestore();
-		orders.forEach((order) => {
-			console.log(order.cid);
-			const firestore = getFirestore();
-			firestore
-				.collection('categories')
-				.doc(order.cid)
-				.get()
-				.then((response) => {
-					if (response.data().isWarehouse) {
-						const orderStock = order.stock;
-						const orderCount = order.count;
-						firestore
-							.collection('categories')
-							.doc(order.cid)
-							.collection('items')
-							.doc(order.id)
-							.update({
-								stock: orderStock - orderCount,
-							})
-							.then(function () {
-								dispatch({ type: 'UPDATE_MENU_ITEM', table });
-							});
-					}
-				})
-				.catch((error) =>
-					dispatch({
-						type: 'ADD_TABLE_ERROR',
-						orderError: error,
-						orderSuccess: '',
-					})
-				);
-		});
-	};
-};
-
 export const addTable = (table) => {
 	const tid = table.tid;
-	const orders = table.orders;
+	const orders = table.addedEntries;
+	console.log(table);
 	if (!tid) {
 		return (dispatch, getState, { getFirebase, getFirestore }) => {
 			dispatch({ type: 'ADD_TABLE_ERROR', orderError: 'Masa Seçmelisin.' });
@@ -98,5 +47,97 @@ export const addTable = (table) => {
 	};
 };
 
-// const update = (order, count) => {
-// };
+export const updateTable = (table) => {
+	const tid = table.tid;
+	const orders = table.updatedOrders;
+	if (!tid) {
+		console.log('here');
+		return (dispatch, getState, { getFirebase, getFirestore }) => {
+			dispatch({ type: 'UPDATE_TABLE_ERROR', updateError: 'Masa Seçmelisin.' });
+		};
+	}
+	if (orders.length === 0) {
+		return (dispatch, getState, { getFirebase, getFirestore }) => {
+			dispatch({ type: 'UPDATE_TABLE_ERROR', updateError: 'Ürün seçmelisin.' });
+		};
+	}
+	return (dispatch, getState, { getFirestore }) => {
+		console.log('updating');
+		const prevOrders = table.prevOrders;
+		const prevIDs = table.prevOIDs;
+		const firestore = getFirestore();
+		// Delete prev
+		prevIDs.forEach((id) => {
+			firestore
+				.collection('tables')
+				.doc(tid)
+				.collection('orders')
+				.doc(id)
+				.delete()
+				.then(() => {
+					console.log('deleted');
+				});
+		});
+
+		orders.forEach((order) => {
+			firestore
+				.collection('tables')
+				.doc(tid)
+				.collection('orders')
+				.add({
+					...order,
+				})
+				.then(() => {
+					dispatch({
+						type: 'UPDATE_TABLE',
+						updateError: '',
+						updateSuccess: 'success',
+						table,
+					});
+				})
+				.catch((error) =>
+					dispatch({
+						type: 'UPDATE_TABLE_ERROR',
+						updateError: error,
+						updateSuccess: '',
+						table,
+					})
+				);
+		});
+	};
+};
+
+export const deleteTableOrder = (table) => {
+	const tid = table.tid;
+	const orders = table.updatedOrders;
+	if (!tid) {
+		console.log('here');
+		return (dispatch, getState, { getFirebase, getFirestore }) => {
+			dispatch({ type: 'UPDATE_TABLE_ERROR', updateError: 'Masa Seçmelisin.' });
+		};
+	}
+	if (orders.length === 0) {
+		return (dispatch, getState, { getFirebase, getFirestore }) => {
+			dispatch({ type: 'UPDATE_TABLE_ERROR', updateError: 'Ürün seçmelisin.' });
+		};
+	}
+	return (dispatch, getState, { getFirestore }) => {
+		console.log('deletinn');
+		const firestore = getFirestore();
+		// Save to DB
+		orders.forEach((order) => {
+			firestore
+				.collection('deletedOrders')
+				.add({
+					...order,
+				})
+				.then(() => {
+					console.log('done');
+				});
+		});
+
+		// Update Warehouse
+
+		// Delete
+	};
+};

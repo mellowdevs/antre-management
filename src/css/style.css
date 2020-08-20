@@ -87,6 +87,11 @@ button:focus {
   .nav-item {
     font-size: 0.9em; }
 
+  .order-card {
+    margin: auto !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important; }
+
   .product-card {
     min-width: 100%; }
 
@@ -154,7 +159,12 @@ button:focus {
 
   .add-product-button,
   .add-menu-item-button {
-    font-size: 0.59em; } }
+    font-size: 0.59em; }
+
+  .order-detail-btn {
+    padding: 0;
+    width: fit-content;
+    font-size: 0.8em; } }
 @media screen and (max-width: 290px) {
   .nav-item,
   .navbar-header {
@@ -168,10 +178,16 @@ button:focus {
   .update-menu-btn {
     font-size: 0.6em; } }
 .order-card {
-  width: 400px;
-  display: block;
-  margin: auto;
-  margin-top: 50px; }
+  width: 200px;
+  height: 200px;
+  margin: 50px 20px; }
+
+.tables-flex {
+  margin: 10px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start; }
 
 .table-name {
   color: #297045;
@@ -180,6 +196,12 @@ button:focus {
 
 .order-details-body.list-group {
   margin-top: 10px; }
+
+.table-card-body {
+  width: fit-content;
+  display: block;
+  max-height: 100px !important;
+  margin: auto; }
 
 .edit-btn {
   background-color: #ffd006;
@@ -237,8 +259,29 @@ button:focus {
     border: none !important;
     color: #ffffff !important; }
 
+.cancel-order-btn {
+  background-color: #c82333 !important;
+  border: none;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  color: #ffffff; }
+  .cancel-order-btn:hover {
+    background-color: #ed979f !important;
+    border: none !important;
+    color: #ffffff !important; }
+  .cancel-order-btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: #ed979f !important;
+    border: none !important;
+    color: #ffffff !important; }
+
 .product-number {
   width: 100%; }
+
+.taken-table {
+  background-color: #edf6f9; }
 
 .product-entry {
   margin-top: 10px;
@@ -294,9 +337,9 @@ button:focus {
   margin-bottom: 20px; }
 
 #dropdown-category-button {
-  background-color: #ffffff;
-  color: #000000;
-  border: 1px solid #000000;
+  background-color: #297045;
+  color: #ffffff;
+  border: 1px solid #297045;
   display: block;
   margin: auto;
   width: 80%;
@@ -313,6 +356,37 @@ button:focus {
 
 .dropdown-menu {
   width: 80% !important; }
+
+.added-list {
+  margin-top: 15px; }
+
+.table-details-card {
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px; }
+
+.table-name-detail {
+  font-size: 1.5em; }
+
+.order-item {
+  padding: 5px !important; }
+
+.order-detail-btn {
+  font-size: 1.5em;
+  max-width: 90%;
+  font-weight: 500 !important; }
+
+.add-order-btn {
+  color: #297045;
+  border: 1px solid #000000; }
+
+.subtr-order-btn {
+  color: #c82333;
+  border: 1px solid #000000; }
+
+.prod-price {
+  text-align: right; }
 
 .wrapper {
   display: flex;

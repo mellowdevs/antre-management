@@ -1,40 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
 	updateMenuItem,
 	deleteMenuItem,
 } from '../../store/actions/menuActions';
-import { firestoreConnect } from 'react-redux-firebase';
+import { firebaseConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
-
-const UpdateMenuItem = (props) => {
-	const cid = props.match.params.cid;
-	const id = props.match.params.id;
-	const { item, auth } = props;
-	if (!auth.uid) {
-		return <Redirect to='/signin' />;
+import firebase from 'firebase';
+class UpdateMenuItem extends Component {
+	state = {
+		id: '',
+		cid: '',
+		item: undefined,
+	};
+	handleChange = (e) => {
+		this.state[e.target.id] = parseFloat(e.target.value) || e.target.value;
+	};
+	handleUpdate = (e) => {
+		this.props.updateMenuItem(this.state);
+	};
+	handleDelete = (e) => {
+		this.props.deleteMenuItem(this.state);
+	};
+	componentDidUpdate() {
+		const database = firebase.database();
 	}
-	if (item) {
-		const state = {
-			cid: cid,
-			id: id,
-			cname: item.cname,
-			name: item.name,
-			price: item.price,
-		};
-		const handleChange = (e) => {
-			state[e.target.id] =
-				parseFloat(e.target.value) ||
-				e.target.value;
-		};
-		const handleUpdate = (e) => {
-			props.updateMenuItem(state);
-		};
-		const handleDelete = (e) => {
-			props.deleteMenuItem(state);
-		};
+	componentDidMount() {
+		const database = firebase.database();
+
+		const cid = this.props.match.params.cid;
+		const id = this.props.match.params.id;
+		database
+			.ref(`categories/${cid}/items/${id}`)
+			.once('value')
+			.then((snapshot) => {
+				let item = {};
+				if (snapshot && snapshot.val()) {
+					item = snapshot.val();
+					this.setState({ id: id, cid: cid, ...item });
+				}
+			});
+	}
+	render() {
+		const { auth } = this.props;
+		const item = this.state.item;
+		if (!auth.uid) {
+			return <Redirect to='/signin' />;
+		}
+		console.log('item', item);
 		return (
 			<div className='container-fluid update-menu-container'>
 				<div className='card add-product-card shadow'>
@@ -49,8 +64,8 @@ const UpdateMenuItem = (props) => {
 									id='name'
 									className='product-name'
 									placeholder='Ürün Adı'
-									onChange={handleChange}
-									defaultValue={item.name}
+									onChange={this.handleChange}
+									defaultValue={this.state.name}
 									min='1'
 								/>
 							</div>
@@ -60,8 +75,8 @@ const UpdateMenuItem = (props) => {
 									id='price'
 									className='product-price'
 									placeholder='Satış Fiyatı'
-									onChange={handleChange}
-									defaultValue={item.price}
+									onChange={this.handleChange}
+									defaultValue={this.state.price}
 									min='1'
 								/>
 							</div>
@@ -71,7 +86,7 @@ const UpdateMenuItem = (props) => {
 								<Link to='/menu' style={{ textDecoration: 'none' }}>
 									<button
 										className='btn btn-danger update-menu-btn'
-										onClick={handleDelete}
+										onClick={this.handleDelete}
 									>
 										Kaldır
 									</button>
@@ -81,7 +96,7 @@ const UpdateMenuItem = (props) => {
 								<Link to='/menu' style={{ textDecoration: 'none' }}>
 									<button
 										className='btn btn-success update-menu-btn'
-										onClick={handleUpdate}
+										onClick={this.handleUpdate}
 									>
 										Güncelle
 									</button>
@@ -92,30 +107,11 @@ const UpdateMenuItem = (props) => {
 				</div>
 			</div>
 		);
-	} else {
-		return <div>yo</div>;
 	}
-};
+}
 
-const mapStateToProps = (state, ownProps) => {
-	let item = {};
-	const id = ownProps.match.params.id;
-	const cid = ownProps.match.params.cid;
-	const items = state.firestore.data.items;
-	const itemDetails = items ? items[id] : null;
-	const categories = state.firestore.data.categories;
-	const thisCategory = categories ? categories[cid] : null;
-	if (itemDetails && thisCategory) {
-		item = {
-			cid: cid,
-			cname: thisCategory.name,
-			id: id,
-			name: itemDetails.name,
-			price: itemDetails.price,
-		};
-	}
+const mapStateToProps = (state) => {
 	return {
-		item: item,
 		auth: state.firebase.auth,
 	};
 };
@@ -126,19 +122,4 @@ const mapDispatchToProps = (dispatch) => {
 		deleteMenuItem: (item) => dispatch(deleteMenuItem(item)),
 	};
 };
-export default compose(
-	connect(mapStateToProps, mapDispatchToProps),
-	firestoreConnect((props) => {
-		const cid = props.match.params.cid;
-		return [
-			{
-				collection: `categories/${cid}/items`,
-				storeAs: 'items',
-			},
-			{
-				collection: `categories`,
-				storeAs: 'categories',
-			},
-		];
-	})
-)(UpdateMenuItem);
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateMenuItem);

@@ -1,0 +1,409 @@
+{
+  "categories" : {
+    "antreyaz" : {
+      "isWarehouse" : false,
+      "items" : {
+        "1" : {
+          "name" : "Kütür Kütür Karpuz",
+          "price" : 15,
+          "stock" : 0
+        },
+        "2" : {
+          "name" : "Portakal Festivali",
+          "price" : 15,
+          "stock" : 0
+        },
+        "-MEVCa7nkpnjlk_xtcSC" : {
+          "name" : "Çilek Lavanta Serinliği",
+          "price" : 15,
+          "stock" : 0
+        }
+      },
+      "name" : "Antre Yaz Lezzetleri"
+    },
+    "bitkicayları" : {
+      "isWarehouse" : false,
+      "items" : [ {
+        "name" : "Kış Çayı",
+        "price" : 9,
+        "stock" : 0
+      }, {
+        "name" : "Yeşil Çay",
+        "price" : 10,
+        "stock" : 0
+      } ],
+      "name" : "Bitki Çayları"
+    },
+    "cay" : {
+      "isWarehouse" : false,
+      "items" : [ {
+        "name" : "Çay (Bardak)",
+        "price" : 3,
+        "stock" : 0
+      }, {
+        "name" : "Çay (Kupa)",
+        "price" : 5,
+        "stock" : 0
+      } ],
+      "name" : "Çay"
+    },
+    "dogallezzetler" : {
+      "isWarehouse" : false,
+      "items" : [ {
+        "name" : "Yaz Çayı",
+        "price" : 13,
+        "stock" : 0
+      }, {
+        "name" : "Buzlu Yeşil Çay",
+        "price" : 13,
+        "stock" : 0
+      }, {
+        "name" : "Limonata",
+        "price" : 10,
+        "stock" : 0
+      }, {
+        "name" : "Buzlu Reyhan",
+        "price" : 10,
+        "stock" : 0
+      } ],
+      "name" : "Doğal Lezzetler"
+    },
+    "fresh" : {
+      "isWarehouse" : false,
+      "items" : [ {
+        "name" : "Elma",
+        "price" : 10,
+        "stock" : 0
+      }, {
+        "name" : "Portakal",
+        "price" : 10,
+        "stock" : 0
+      }, {
+        "name" : "Havuç",
+        "price" : 10,
+        "stock" : 0
+      }, {
+        "name" : "Karışık",
+        "price" : 10,
+        "stock" : 0
+      }, {
+        "name" : "İkili Karışık",
+        "price" : 10,
+        "stock" : 0
+      } ],
+      "name" : "Taze Sıkılmış"
+    },
+    "kahve" : {
+      "isWarehouse" : false,
+      "items" : [ {
+        "name" : "Espresso",
+        "price" : 8,
+        "stock" : 0
+      }, {
+        "name" : "Double Espresso",
+        "price" : 9,
+        "stock" : 0
+      }, {
+        "name" : "Americano",
+        "price" : 9,
+        "stock" : 0
+      }, {
+        "name" : "Cappucino",
+        "price" : 11,
+        "stock" : 0
+      }, {
+        "name" : "Caffe Latte",
+        "price" : 11,
+        "stock" : 0
+      }, {
+        "name" : "Mocha",
+        "price" : 12,
+        "stock" : 0
+      }, {
+        "name" : "Flat White",
+        "price" : 11,
+        "stock" : 0
+      }, {
+        "name" : "Latte Macchiato",
+        "price" : 11,
+        "stock" : 0
+      }, {
+        "name" : "Caramel Macchiato",
+        "price" : 12,
+        "stock" : 0
+      }, {
+        "name" : "Espresso Macchiato",
+        "price" : 9,
+        "stock" : 0
+      }, {
+        "name" : "Cortado",
+        "price" : 11,
+        "stock" : 0
+      }, {
+        "name" : "Filtre Kahve",
+        "price" : 10,
+        "stock" : 0
+      }, {
+        "name" : "V60",
+        "price" : 14,
+        "stock" : 0
+      }, {
+        "name" : "Chemex",
+        "price" : 14,
+        "stock" : 0
+      } ],
+      "name" : "Kahve"
+    },
+    "mesrubat" : {
+      "isWarehouse" : true,
+      "items" : [ {
+        "name" : "Su",
+        "price" : 4,
+        "stock" : 10
+      }, {
+        "name" : "Sade Soda",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Meyveli Soda (Limon)",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Meyveli Soda (Elma)",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Meyveli Soda (Karpuz Çilek)",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Uludağ Gazoz (Klasik)",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Uludağ Gazoz (Damla Sakızlı)",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Uludağ Gazoz (Şekersiz)",
+        "price" : 5,
+        "stock" : 10
+      } ],
+      "name" : "Meşrubat"
+    },
+    "nostaljik" : {
+      "isWarehouse" : true,
+      "items" : [ {
+        "name" : "Beyoğlu Klasik",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Beyoğlu Zencefil",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Bor Hindistan Cevizli",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Bor Damla Sakızlı",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Denizli Elma - Erik",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Denizli Şeftali - Lavanta",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Zafer Ananas - Limon",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Zefer Gazozu",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Zafer Gazozu Mandalina",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Datça Gazozu Acıbadem",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Adana Zaman",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Ankara Gazozu",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Elvan Gazozu",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Antalya Gazozu",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Dört Mevsim Akhisar Gazozu",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Sarıkız Gazozu",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Ufuk Gazozu",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Benda Gazozu",
+        "price" : 5,
+        "stock" : 10
+      }, {
+        "name" : "Bodrum Mandalina",
+        "price" : 7.5,
+        "stock" : 10
+      } ],
+      "name" : "Nostaljik lezzetler"
+    },
+    "sicaklezzetler" : {
+      "isWarehouse" : false,
+      "items" : [ {
+        "name" : "Sıcak Çikolata",
+        "price" : 10,
+        "stock" : 0
+      }, {
+        "name" : "Salep",
+        "price" : 10,
+        "stock" : 0
+      }, {
+        "name" : "Ballı Süt",
+        "price" : 7,
+        "stock" : 0
+      } ],
+      "name" : "Sıcak Lezzetler"
+    },
+    "sogukkahve" : {
+      "isWarehouse" : false,
+      "items" : [ {
+        "name" : "Ice Latte",
+        "price" : 14,
+        "stock" : 0
+      }, {
+        "name" : "Ice Americano",
+        "price" : 12,
+        "stock" : 0
+      }, {
+        "name" : "Frappe",
+        "price" : 15,
+        "stock" : 0
+      }, {
+        "name" : "Ice Mocha",
+        "price" : 15,
+        "stock" : 0
+      }, {
+        "name" : "Japanese Cold",
+        "price" : 14,
+        "stock" : 0
+      }, {
+        "name" : "Cold Brew",
+        "price" : 12,
+        "stock" : 0
+      } ],
+      "name" : "Soğuk Kahve"
+    },
+    "tatlı" : {
+      "isWarehouse" : true,
+      "items" : {
+        "0" : {
+          "name" : "Limonlu Cheesecake",
+          "price" : 15,
+          "stock" : 8
+        },
+        "-MEVDOQ0Vjuz4c0m4Hah" : {
+          "name" : "Frambuazlı Cheesecake",
+          "price" : 14,
+          "stock" : 0
+        }
+      },
+      "name" : "Tatlı"
+    },
+    "turkkahvesi" : {
+      "isWarehouse" : false,
+      "items" : [ {
+        "name" : "Türk Kahvesi",
+        "price" : 8,
+        "stock" : 0
+      }, {
+        "name" : "Double Türk Kahvesi",
+        "price" : 14,
+        "stock" : 0
+      }, {
+        "name" : "Damla Sakızlı",
+        "price" : 10,
+        "stock" : 0
+      }, {
+        "name" : "Menengiç Kahvesi",
+        "price" : 9,
+        "stock" : 0
+      } ],
+      "name" : "Türk Kahvesi"
+    }
+  },
+  "tables" : {
+    "agacalti" : {
+      "isTaken" : false,
+      "isWinter" : false,
+      "name" : "ağaçaltı"
+    },
+    "depo" : {
+      "isTaken" : true,
+      "isWinter" : false,
+      "name" : "depo",
+      "orders" : [ {
+        "category" : "coffee",
+        "count" : 1,
+        "name" : "Kahve",
+        "price" : 10,
+        "stock" : 0,
+        "total" : 10
+      } ]
+    },
+    "depo1" : {
+      "isTaken" : false,
+      "isWinter" : false,
+      "name" : "depo 1"
+    },
+    "disbar" : {
+      "isTaken" : false,
+      "isWinter" : false,
+      "name" : "dış bar"
+    },
+    "kapionu" : {
+      "isTaken" : false,
+      "isWinter" : false,
+      "name" : "kapı önü"
+    },
+    "nezis" : {
+      "isTaken" : false,
+      "isWinter" : false,
+      "name" : "neziş"
+    },
+    "orta1" : {
+      "isTaken" : false,
+      "isWinter" : false,
+      "name" : "orta 1"
+    },
+    "selale" : {
+      "isTaken" : false,
+      "isWinter" : false,
+      "name" : "şelale"
+    }
+  }
+}

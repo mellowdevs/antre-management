@@ -52,14 +52,12 @@ class AddExpense extends Component {
 					</div>
 					<div className='row'>
 						<div className='col-12'>
-							{/* <Link to='/expenses' style={{ textDecoration: 'none' }}> */}
 							<button
 								className='btn btn add-menu-item-button'
 								onClick={this.handleSubmit}
 							>
 								Kaydet
 							</button>
-							{/* </Link> */}
 						</div>
 					</div>
 				</div>

@@ -15,11 +15,8 @@ class Dashboard extends Component {
 		return (
 			<div className='dashboard container'>
 				<div className='row'>
-					<div className='col-12 col-md-6 left-dash'>
+					<div className='col-12'>
 						<TableList />
-					</div>
-					<div className='col-12 col-md-5 offset-md-1 right-dash'>
-						<Stats />
 					</div>
 				</div>
 			</div>

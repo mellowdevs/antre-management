@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MenuList from './MenuList';
 import { connect } from 'react-redux';
-import { firestoreConnect } from 'react-redux-firebase';
+import { firestoreConnect, firebaseConnect } from 'react-redux-firebase';
 import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
 
@@ -30,12 +30,10 @@ class Menu extends Component {
 const mapStateToProps = (state) => {
 	return {
 		auth: state.firebase.auth,
-		categories: state.firestore.ordered.categories,
+		categories: state.firebase.ordered.categories,
 	};
 };
 export default compose(
-	firestoreConnect(() => [
-		{ collection: 'categories', orderBy: ['name', 'asc'] },
-	]),
+	firebaseConnect({ path: 'categories', queryParams: ['orderByKey'] }),
 	connect(mapStateToProps)
 )(Menu);

@@ -6,31 +6,16 @@ class MenuCategory extends Component {
 	state = {
 		items: [{}],
 	};
-	componentDidMount() {
+	componentWillMount() {
 		const { category } = this.props;
-		const database = firebase.firestore();
-		database
-			.collection('categories')
-			.doc(category.id)
-			.collection('items')
-			.orderBy('name', 'asc')
-			.get()
-			.then((response) => {
-				const items = [];
-				response.forEach((doc) => {
-					const item = {
-						id: doc.id,
-						cid: category.id,
-						cname: category.name,
-						...doc.data(),
-					};
-					items.push(item);
-				});
-				this.setState({ items: items });
-			})
-			.catch((error) => {
-				console.error(error);
+		const database = firebase.database();
+		database.ref(`/categories/${category.key}`).on('value', (snapshot) => {
+			const items = [];
+			snapshot.child('items').forEach((item) => {
+				items.push({ cid: category.key, key: item.key, ...item.val() });
 			});
+			this.setState({ items: items });
+		});
 	}
 	render() {
 		const { category } = this.props;
@@ -44,8 +29,8 @@ class MenuCategory extends Component {
 					<div className='card-text'>
 						<ul className='list-group '>
 							{items &&
-								items.map((item) => {
-									return <MenuItem item={item} key={item.id} />;
+								items.map((item, index) => {
+									return <MenuItem item={item} key={index} />;
 								})}
 						</ul>
 					</div>

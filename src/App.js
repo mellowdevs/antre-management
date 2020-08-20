@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layouts/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import SignIn from './components/auth/SignIn';
-import OrderDetails from './components/orders/OrderDetails';
+import TableDetails from './components/orders/TableDetails';
 import CreateOrder from './components/orders/CreateOrder';
 import Warehouse from './components/warehouse/Warehouse';
 import UpdateProduct from './components/warehouse/UpdateProduct';
@@ -18,7 +18,7 @@ function App() {
 				<div className='container'>
 					<Switch>
 						<Route exact path='/' component={Dashboard}></Route>
-						<Route exact path='/order/:id' component={OrderDetails}></Route>
+						<Route exact path='/order/:id' component={TableDetails}></Route>
 						<Route
 							exact
 							path='/update/:cid/:id'
@@ -29,7 +29,7 @@ function App() {
 							path='/item/:cid/:id'
 							component={UpdateMenuItem}
 						></Route>
-						<Route exact path='/create' component={CreateOrder}></Route>
+						<Route exact path='/create/:id' component={CreateOrder}></Route>
 						<Route exact path='/signin' component={SignIn}></Route>
 						<Route exact path='/warehouse' component={Warehouse}></Route>
 						<Route exact path='/menu' component={Menu}></Route>
